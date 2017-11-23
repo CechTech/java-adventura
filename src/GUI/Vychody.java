@@ -38,7 +38,7 @@ public class Vychody extends ListView implements Observer {
         getSeznamVychodu().setPrefWidth(200);
         getSeznamVychodu().setMaxHeight(120);
         vychodNazev = new Label("Východy:");
-        getVychodNazev().setFont(Font.font("Avenir Next", FontWeight.BOLD, 16));
+        getVychodNazev().setFont(Font.font("Arial", FontWeight.BOLD, 14));
         getVychodNazev().setPrefWidth(200);
 
         for (Prostor prostor : sousedniVychody) {
@@ -47,10 +47,20 @@ public class Vychody extends ListView implements Observer {
         update();
     }
 
+    /**
+     * přeregistrování observerů při nové hře
+     * @param novaHra -
+     */
+    void newGame(IHra novaHra) {
+        hra.getHerniPlan().removeObserver(this);
+        hra = novaHra;
+        hra.getHerniPlan().registerObserver(this);
+        update();
+    }
+
     @Override
     public void update() {
-        Collection<Prostor> sousedniProstory = hra.getHerniPlan()
-                .getAktualniProstor().getVychody();
+        Collection<Prostor> sousedniProstory = hra.getHerniPlan().getAktualniProstor().getVychody();
         vychody.clear();
 
         sousedniProstory.forEach((prostor) -> vychody.add(prostor.getNazev()));

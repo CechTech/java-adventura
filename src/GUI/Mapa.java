@@ -51,5 +51,4 @@ public class Mapa extends AnchorPane implements Observer {
         this.setTopAnchor(tecka, hra.getHerniPlan().getAktualniProstor().getPosX());
         this.setLeftAnchor(tecka, hra.getHerniPlan().getAktualniProstor().getPosY());
     }
-
 }
