@@ -71,6 +71,7 @@ public class MenuLista extends MenuBar{
             public void handle(ActionEvent event) {
                 hra = new Hra();
                 main.getMapa().newGame(hra);
+                main.getVychody().newGame(hra);
                 main.setHra(hra);
                 main.getCentralText().setText(hra.vratUvitani());
             }

@@ -1,37 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
 import GUI.Mapa;
 import GUI.MenuLista;
+import GUI.Vychody;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logika.*;
 import uiText.TextoveRozhrani;
 
 /**
  *
- * @author xzenj02
+ * @author xzenj02, cecj02
  */
 public class Main extends Application {
     private TextArea centralText;
@@ -44,6 +35,7 @@ public class Main extends Application {
 
     private Mapa mapa;
     private MenuLista menuLista;
+    private Vychody vychody;
 
     private Stage stage;
 
@@ -52,9 +44,9 @@ public class Main extends Application {
         this.setStage(primaryStage);
 
         hra = new Hra();
-
         mapa = new Mapa(hra);
         menuLista = new MenuLista(hra, this);
+        vychody = new Vychody(hra);
 
         BorderPane borderPane = new BorderPane();
 
@@ -90,12 +82,28 @@ public class Main extends Application {
             }
         });
 
+        getVychody().getSeznamVychodu().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                String nazevVychodu = getVychody().getSeznamVychodu().getSelectionModel().getSelectedItem();
+                String prikaz = "jdi " + nazevVychodu;
+                String odpovedNaPrikaz = hra.zpracujPrikaz(prikaz);
+                appendCentralText(odpovedNaPrikaz);
+            }
+        });
+
         //dolni lista s elementy
         FlowPane dolniLista = new FlowPane();
         dolniLista.setAlignment(Pos.CENTER);
         dolniLista.getChildren().addAll(zadejPrikazLabel,zadejPrikazTextArea);
 
+        FlowPane pravaLista = new FlowPane();
+        pravaLista.setAlignment(Pos.TOP_CENTER);
+        pravaLista.setPrefWidth(200);
+        pravaLista.getChildren().addAll(getVychody().getVychodNazev(),getVychody().getSeznamVychodu());
+
         borderPane.setLeft(mapa);
+        borderPane.setRight(pravaLista);
         borderPane.setBottom(dolniLista);
         borderPane.setTop(menuLista);
 
@@ -111,8 +119,19 @@ public class Main extends Application {
         return centralText;
     }
 
+    public void appendCentralText(String vstupniPrikaz) {
+        this.getCentralText().appendText("\n" + vstupniPrikaz + "\n");
+    }
+
     public Mapa getMapa() {
         return mapa;
+    }
+
+    /**
+     * @return vychody
+     */
+    public Vychody getVychody() {
+        return vychody;
     }
 
     /**
