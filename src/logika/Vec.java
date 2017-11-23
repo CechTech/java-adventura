@@ -13,16 +13,18 @@ public class Vec
     private String popis;
     private boolean prenositelna;
     public boolean pouzitelna;
+    private String obrazek;
     
     /***************************************************************************
      *  Konstruktor třídy
      */
-    public Vec(String nazev, String popis, boolean prenositelna, boolean pouzitelna)
+    public Vec(String nazev, String popis, boolean prenositelna, boolean pouzitelna, String obrazek)
     {
         this.nazev = nazev;
         this.popis = popis;
         this.prenositelna = prenositelna;
         this.pouzitelna = pouzitelna;
+        this.obrazek = obrazek;
     }
     
     /**
@@ -51,5 +53,12 @@ public class Vec
      */
     public boolean isPouzitelna() {
         return pouzitelna;
+    }
+
+    /**
+     * @return the obrazek
+     */
+    public String getObrazek() {
+        return obrazek;
     }
 }

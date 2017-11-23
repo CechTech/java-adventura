@@ -48,7 +48,7 @@ public class Vychody extends ListView implements Observer {
     }
 
     /**
-     * přeregistrování observerů při nové hře
+     * Přeregistrování observerů při nové hře
      * @param novaHra -
      */
     void newGame(IHra novaHra) {

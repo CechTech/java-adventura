@@ -84,19 +84,19 @@ public class HerniPlan implements Subject {
         aktualniProstor = hrad;  // hra začíná ve hradě
         
         // Vytvoříme věci
-        Vec penize = new Vec("penize", "Peněz není nikdy dost", true, false);
-        Vec mapa = new Vec("mapa", "Mapa Králoství Lihovin", true, true);
-        Vec koruna = new Vec("koruna", "Korunovační klenoty", false, false);
-        Vec piratskaMince = new Vec("piratskaMince", "Pro tuhle jsou piráti ochotni riskovat život", true, true);       
-        Vec kouzelnyRoh = new Vec("kouzelnyRoh", "Přivolá kouzelného jelena", true, true);
-        Vec horolezeckeVybaveni = new Vec("horolezeckeVybaveni", "Bez něj se do hor nedá dostat", true, true);
-        Vec prazdnaLahev = new Vec("prazdnaLahev", "Láhev od pálenky se špuntem", true, false);
-        Vec svestky = new Vec("svestky", "Švestky k jídlu, nebo na slivovici", false, false);
-        Vec lahevMyslivce = new Vec("lahevMyslivce", "Stará myslivecká", false, false);
-        Vec lahevJagermeistera = new Vec("lahevJagermeistera", "Jägermeister", false, false);
-        Vec sudyRumu = new Vec("sudyRumu", "Obří zásoby pirátského nápoje", false, false);
-        Vec kaktusy = new Vec("kaktusy", "Všude jsou samé kaktusy", false, false);
-        Vec mec = new Vec("mec", "Smrtonosná zbraň", true, true);
+        Vec penize = new Vec("penize", "Peněz není nikdy dost", true, false, "/zdroje/mec.png");
+        Vec mapa = new Vec("mapa", "Mapa Králoství Lihovin", true, true, "/zdroje/mec.png");
+        Vec koruna = new Vec("koruna", "Korunovační klenoty", false, false, "/zdroje/mec.png");
+        Vec piratskaMince = new Vec("piratskaMince", "Pro tuhle jsou piráti ochotni riskovat život", true, true, "/zdroje/mec.png");
+        Vec kouzelnyRoh = new Vec("kouzelnyRoh", "Přivolá kouzelného jelena", true, true, "/zdroje/mec.png");
+        Vec horolezeckeVybaveni = new Vec("horolezeckeVybaveni", "Bez něj se do hor nedá dostat", true, true, "/zdroje/mec.png");
+        Vec prazdnaLahev = new Vec("prazdnaLahev", "Láhev od pálenky se špuntem", true, false, "/zdroje/mec.png");
+        Vec svestky = new Vec("svestky", "Švestky k jídlu, nebo na slivovici", false, false, "/zdroje/mec.png");
+        Vec lahevMyslivce = new Vec("lahevMyslivce", "Stará myslivecká", false, false, "/zdroje/mec.png");
+        Vec lahevJagermeistera = new Vec("lahevJagermeistera", "Jägermeister", false, false, "/zdroje/mec.png");
+        Vec sudyRumu = new Vec("sudyRumu", "Obří zásoby pirátského nápoje", false, false, "/zdroje/mec.png");
+        Vec kaktusy = new Vec("kaktusy", "Všude jsou samé kaktusy", false, false, "/zdroje/mec.png");
+        Vec mec = new Vec("mec", "Smrtonosná zbraň", true, true, "/zdroje/mec.png");
         
         // Vložíme věci do prostorů
         hrad.vlozVec(penize);

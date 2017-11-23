@@ -72,6 +72,7 @@ public class MenuLista extends MenuBar{
                 hra = new Hra();
                 main.getMapa().newGame(hra);
                 main.getVychody().newGame(hra);
+                main.getVeciVProstoru().newGame(hra);
                 main.setHra(hra);
                 main.getCentralText().setText(hra.vratUvitani());
             }

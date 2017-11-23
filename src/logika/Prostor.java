@@ -270,4 +270,11 @@ public class Prostor {
     public double getPosY() {
         return posY;
     }
+
+    /**
+     * @return the veciVProstoru
+     */
+    public Map<String, Vec> getSeznamVeci() {
+        return seznamVeci;
+    }
 }

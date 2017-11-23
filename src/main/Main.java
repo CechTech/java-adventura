@@ -3,6 +3,7 @@ package main;
 import GUI.Mapa;
 import GUI.MenuLista;
 import GUI.Vychody;
+import GUI.VeciVProstoru;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,7 +22,6 @@ import logika.*;
 import uiText.TextoveRozhrani;
 
 /**
- *
  * @author xzenj02, cecj02
  */
 public class Main extends Application {
@@ -36,6 +36,7 @@ public class Main extends Application {
     private Mapa mapa;
     private MenuLista menuLista;
     private Vychody vychody;
+    private VeciVProstoru veciVProstoru;
 
     private Stage stage;
 
@@ -52,6 +53,7 @@ public class Main extends Application {
 
         // Text s prubehem hry
         centralText = new TextArea();
+        veciVProstoru = new VeciVProstoru(hra, centralText);
         centralText.setText(hra.vratUvitani());
         centralText.setEditable(false);
         borderPane.setCenter(centralText);
@@ -66,7 +68,6 @@ public class Main extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-
                 String vstupniPrikaz = zadejPrikazTextArea.getText();
                 String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
 
@@ -86,9 +87,9 @@ public class Main extends Application {
             @Override
             public void handle(MouseEvent event) {
                 String nazevVychodu = getVychody().getSeznamVychodu().getSelectionModel().getSelectedItem();
-                String prikaz = "jdi " + nazevVychodu;
-                String odpovedNaPrikaz = hra.zpracujPrikaz(prikaz);
-                appendCentralText(odpovedNaPrikaz);
+                String vstupniPrikaz = "jdi " + nazevVychodu;
+                String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
+                appendCentralText(odpovedHry);
             }
         });
 
@@ -100,7 +101,11 @@ public class Main extends Application {
         FlowPane pravaLista = new FlowPane();
         pravaLista.setAlignment(Pos.TOP_CENTER);
         pravaLista.setPrefWidth(200);
-        pravaLista.getChildren().addAll(getVychody().getVychodNazev(),getVychody().getSeznamVychodu());
+        pravaLista.getChildren().addAll(
+                getVychody().getVychodNazev(),
+                getVychody().getSeznamVychodu(),
+                getVeciVProstoru().getVecNazev(),
+                getVeciVProstoru());
 
         borderPane.setLeft(mapa);
         borderPane.setRight(pravaLista);
@@ -128,10 +133,17 @@ public class Main extends Application {
     }
 
     /**
-     * @return vychody
+     * @return the vychody
      */
     public Vychody getVychody() {
         return vychody;
+    }
+
+    /**
+     * @return the veciVProstoru
+     */
+    public VeciVProstoru getVeciVProstoru() {
+        return veciVProstoru;
     }
 
     /**
