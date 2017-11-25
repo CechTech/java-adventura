@@ -69,16 +69,6 @@ public class VeciVProstoru extends HBox implements Observer {
             update();
         }
     }
-    /**
-     * Přeregistrování observerů při nové hře
-     * @param novaHra -
-     */
-    public void newGame(IHra novaHra) {
-        hra.getHerniPlan().removeObserver(this);
-        hra = novaHra;
-        hra.getHerniPlan().registerObserver(this);
-        update();
-    }
 
     @Override
     public void update() {
