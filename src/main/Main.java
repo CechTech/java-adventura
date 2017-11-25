@@ -65,7 +65,7 @@ public class Main extends Application {
         zadejPrikazLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
 
         // text area do ktere piseme prikazy
-        zadejPrikazTextArea = new TextField("...");
+        zadejPrikazTextArea = new TextField("");
         zadejPrikazTextArea.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
