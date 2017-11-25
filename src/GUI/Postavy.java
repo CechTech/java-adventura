@@ -52,7 +52,7 @@ public class Postavy extends VBox implements Observer {
         for (String postava : mapaPostavVProstoru.keySet()) {
             Postava pomocnaPostava = mapaPostavVProstoru.get(postava);
             tlacitkoPostavy = new Button(pomocnaPostava.getJmeno(), new ImageView(new Image(
-                    Main.class.getResourceAsStream(pomocnaPostava.getObrazek()), 30, 30, false, false))
+                    Main.class.getResourceAsStream(pomocnaPostava.getObrazek()), 0, 40, true, false))
             );
 
             this.getChildren().add(getTlacitkoPostavy());
@@ -82,7 +82,7 @@ public class Postavy extends VBox implements Observer {
             try {
                 Postava pomocnaPostava = mapaPostavVProstoru.get(postava);
                 tlacitkoPostavy = new Button(pomocnaPostava.getJmeno(), new ImageView(new Image(
-                        Main.class.getResourceAsStream(pomocnaPostava.getObrazek()), 30, 30, false, false))
+                        Main.class.getResourceAsStream(pomocnaPostava.getObrazek()), 0, 40, true, false))
                 );
 
                 this.getChildren().add(getTlacitkoPostavy());

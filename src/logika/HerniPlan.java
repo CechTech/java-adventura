@@ -114,13 +114,13 @@ public class HerniPlan implements Subject {
                 + "Jelen Jägermeister: Doufám, že toto vzájemně prospěšné spojenectví nadále vydrží. \n"
                 + "Jelen Jägermeister: Musím ti ale položit důležitou otázku. \n\n"
                 + "Jelen Jägermeister: Z kolika bylinek vyrábím svůj kouzelný likér? \n"
-                + "Možnosti: A - 32, B - 56, C - 64 \n", "/zdroje/mec.png");
+                + "Možnosti: A - 32, B - 56, C - 64 \n", "/zdroje/jagermeister.png");
         Postava myslivec = new Postava ("myslivec", "Pivoň: Myslivče! Kde najdu pána lesa? \n"
                 + "Starý Myslivec: Je hluboko hluboko v lese, drahý princi. Vratí se až za dlouho. \n"
                 + "Starý Myslivec: Jestli ho potřebuješ hned, budeš muset zatroubit na kouzelný roh. \n"
                 + "Pivoň: Kde ho najdu? \n"
                 + "Starý Myslivec: Jeden by měl být někde na severu. V zemi Ledových ostrovů \n"
-                + "Pivoň: Děkuji ti za radu \n", "/zdroje/mec.png");
+                + "Pivoň: Děkuji ti za radu \n", "/zdroje/stara_myslivecka.png");
         strazceBeefeater = new Postava ("strazceBeefeater", "Strážce Beefeater: Vítej princi. Již tě očekávám. \n"
                 + "Strážce Beefeater: Velice mě mrzí smrt tvého otce. Byl to dobrý člověk a skvělý král. \n"
                 + "Strážce Beefeater: Jistě jsi velmi vyčerpaný po cestě. Zde můžeš setrvat, jak dlouho budeš chtít. \n"
@@ -128,20 +128,20 @@ public class HerniPlan implements Subject {
                 + "Strážce Beefeater: Samozřejmě, Králoství Lihovin potřebuje svého krále. \n"
                 + "Strážce Beefeater: Mlžné hory jsou tvé, stačí mi jen zodpovědět jednu otázku. \n\n"
                 + "Strážce Beefeater: Čím se vyznačuje typ ginu zvaný Genever? \n"
-                + "Možnosti: A - vyráběn periodickou destilací, B - pochází z Ženevy, C - vyráběn kontinuální destilací \n", "/zdroje/mec.png");
+                + "Možnosti: A - vyráběn periodickou destilací, B - pochází z Ženevy, C - vyráběn kontinuální destilací \n", "/zdroje/beefeater.png");
         joseCuervo = new Postava ("joseCuervo", "José Cuervo: Sám pan princ zavítal do nehostinných pouští. \n"
                 + "José Cuervo: Co tu chceš? Ten starej mezek, na jehož jméno si nevzpomínám, zase něco potřebuje? \n"
                 + "Pivoň: Nechce, je mrtvej. Ale já chci, aby jsi přišel na mou korunovaci, poklekl a odpřísáhl věrnost. \n"
                 + "José Cuervo: Á, to mě mrzí. Nevěděl jsem. Nuže dobrá, ale potřebuji něco vědět. \n\n"
                 + "José Cuervo: Z jakého kaktusu se vyrábí pravá tequila? \n"
-                + "Možnosti: A - peyote, B - hatiora, C - agáve \n", "/zdroje/mec.png");
+                + "Možnosti: A - peyote, B - hatiora, C - agáve \n", "/zdroje/jose_cuervo.png");
         rudolfJelinek = new Postava ("rudolfJelinek", "Rudolf Jelínek: Vítejte princi. Čemu vděčím za tak vzácnou návštěvu? \n"
                 + "Rudolf Jelínek: Jaká pálenka to dnes bude? Hruška? Švestka? Nebo snad ořech? \n"
                 + "Pivoň: Drahý Rudolfe. Beru všechny, jako vždy. Tohle ale není důvod mé návštěvy. \n"
                 + "Rudolf Jelínek: No ovšem. Úpřimnou soustrast, všichni jsme vašeho otce milovali. \n"
                 + "Rudolf Jelínek: Produkce prvotřídních pálenek nebude narušena, ale stejně se musím zeptat. \n\n"
                 + "Rudolf Jelínek: Proč má mít správná pálenka alespoň 45 %? \n"
-                + "Možnosti: A - slabší může být kyselá, B - slabší nejde vypálit, C - slabší by nikdo nepil \n", "/zdroje/mec.png");
+                + "Možnosti: A - slabší může být kyselá, B - slabší nejde vypálit, C - slabší by nikdo nepil \n", "/zdroje/rudolf_jelinek.png");
         kapitanMorgan = new Postava ("kapitanMorgan", "Kapitán Morgan: Ale ale není to naše princátko? Co mi chceš? \n"
                 + "Pivoň: Jistě víš, že náš král zemřel a já nastoupím na jeho místo. \n"
                 + "Pivoň: Určitě si budeš chtít zachovat svou vládu nad Přístavem. \n"
@@ -155,7 +155,7 @@ public class HerniPlan implements Subject {
                 + "Kapitán Morgan: Jsi nekompromisní, jako tvůj otec. Vážil jsem si ho. \n"
                 + "Kapitán Morgan: Možná i ty si zasloužíš můj respekt. Dokaž to! \n\n"
                 + "Kapitán Morgan: Z jaké suroviny se vyrábí pravý pirátský rum? \n"
-                + "Možnosti: A - brambory, B - cukrová třtina, C - obilniny \n", "/zdroje/mec.png");
+                + "Možnosti: A - brambory, B - cukrová třtina, C - obilniny \n", "/zdroje/captain_morgan.png");
         Postava kapitanBucanero = new Postava ("kapitanBucanero", "Pivoň: Čau Bukanýre, nějakou dobu jsme se neviděli. \n"
                 + "Kapitán Bucanero: Nazdár Pivoni, je to tak. Tak dáme hned rum? \n"
                 + "Pivoň: Jasně že dáme, ale nejdřív od tebe něco potřebuju. \n"
@@ -168,7 +168,7 @@ public class HerniPlan implements Subject {
                 + "Pivoň: Co chceš? Peníze? \n"
                 + "Kapitán Bucanero: Peníze?! Těch mám tolik, že nevím co s nima. \n"
                 + "Kapitán Bucanero: Ale je tady něco jinýho. Někde v Poušti zapomnění by měla být jistá mince. \n"
-                + "Kapitán Bucanero: Dones mi ji. Já naložím sudy rumu na cestu a můžeme vyrazit. \n", "/zdroje/mec.png");
+                + "Kapitán Bucanero: Dones mi ji. Já naložím sudy rumu na cestu a můžeme vyrazit. \n", "/zdroje/bucanero.png");
         roaldAmundsen = new Postava ("roaldAmundsen", "Roald Amundsen: Vítej cestovateli. V tomto ročním období tu nemáme moc návštěvníků. \n"
                 + "Pivoň: Nepřijel bych, kdyby to nebylo nutné. Rozhodně ne v tomto počasí. \n"
                 + "Pivoň: Král Abrelour zemřel a já, jeho syn, mám nastoupit na trůn. \n"
@@ -176,7 +176,7 @@ public class HerniPlan implements Subject {
                 + "Roald Amundsen: Ale jistě! Nadevše rád cestuji. \n"
                 + "Roald Amundsen: Než se ale vydám na tuto dlouho pouť, musíš mi něco říct. \n\n"
                 + "Roald Amundsen: V jakých sudech nejčastěji zraje nejkvalitnější whiskey? \n"
-                + "Možnosti: A - bukových, B - akátový, C - dubový \n", "/zdroje/mec.png");
+                + "Možnosti: A - bukových, B - akátový, C - dubový \n", "/zdroje/amundsen.png");
 
         // Vloží postavy do prostorů
         kouzelnyLes.vlozPostavu(myslivec);
