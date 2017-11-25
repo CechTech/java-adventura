@@ -27,7 +27,7 @@ public class Prostor {
     private Hra hra;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
     private Map<String, Vec> seznamVeci;
-    public HashMap<String, Postava> seznamPostavy; //obsahuje seznam postav
+    public HashMap<String, Postava> seznamPostav; //obsahuje seznam postav
     public boolean zamceno = false;
 
     private double posX;
@@ -48,7 +48,7 @@ public class Prostor {
         this.posY = posY;
         vychody = new HashSet<>();
         seznamVeci = new HashMap<>();
-        seznamPostavy = new HashMap<>();
+        seznamPostav = new HashMap<>();
     }
 
     /**
@@ -173,7 +173,7 @@ public class Prostor {
      */
     private String popisPostav() {
         String vracenyText = "Postavy:";
-        for (String nazev : seznamPostavy.keySet()) {
+        for (String nazev : seznamPostav.keySet()) {
             vracenyText += " " + nazev;
         }       
         return vracenyText;
@@ -232,21 +232,21 @@ public class Prostor {
      * Vloží postavu v prostoru
      */
     public void vlozPostavu(Postava postava) {
-        seznamPostavy.put(postava.getJmeno(), postava);
+        seznamPostav.put(postava.getJmeno(), postava);
     }
     
     /**
      * Odebere postavu v prostoru
      */
     public Postava odeberPostavu(String jmeno) {
-        return seznamPostavy.remove(jmeno);
+        return seznamPostav.remove(jmeno);
     }
     
     /**
      * Najde postavu v prostoru
      */
     public Postava najdiPostavu(String jmeno) {
-        return seznamPostavy.get(jmeno);
+        return seznamPostav.get(jmeno);
     }
     
     /**
@@ -272,9 +272,16 @@ public class Prostor {
     }
 
     /**
-     * @return the veciVProstoru
+     * @return the seznamVeci
      */
     public Map<String, Vec> getSeznamVeci() {
         return seznamVeci;
+    }
+
+    /**
+     * @return the seznamPostav
+     */
+    public HashMap<String, Postava> getSeznamPostav() {
+        return seznamPostav;
     }
 }

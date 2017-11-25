@@ -5,6 +5,7 @@ import GUI.MenuLista;
 import GUI.Vychody;
 import GUI.VeciVProstoru;
 import GUI.Batoh;
+import GUI.Postavy;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -39,6 +40,7 @@ public class Main extends Application {
     private Vychody vychody;
     private VeciVProstoru veciVProstoru;
     private Batoh batoh;
+    private Postavy postavy;
 
     private Stage stage;
 
@@ -56,6 +58,7 @@ public class Main extends Application {
         // Text s prubehem hry
         centralText = new TextArea();
         veciVProstoru = new VeciVProstoru(hra, centralText);
+        postavy = new Postavy(hra, centralText);
         centralText.setText(hra.vratUvitani());
         centralText.setEditable(false);
         borderPane.setCenter(centralText);
@@ -83,6 +86,7 @@ public class Main extends Application {
                     vychody.getSeznamVychodu().setDisable(true);
                     veciVProstoru.setDisable(true);
                     batoh.setDisable(true);
+                    postavy.setDisable(true);
                     centralText.appendText(hra.vratEpilog());
                 }
             }
@@ -114,7 +118,9 @@ public class Main extends Application {
                 getVeciVProstoru().getVecNazev(),
                 getVeciVProstoru(),
                 getBatoh().getBatohNazev(),
-                getBatoh());
+                getBatoh(),
+                getPostavy().getPostavaNazev(),
+                getPostavy());
 
         borderPane.setLeft(mapa);
         borderPane.setRight(pravaLista);
@@ -160,6 +166,13 @@ public class Main extends Application {
      */
     public Batoh getBatoh() {
         return batoh;
+    }
+
+    /**
+     * @return the postavy
+     */
+    public Postavy getPostavy() {
+        return postavy;
     }
 
     /**

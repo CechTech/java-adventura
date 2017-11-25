@@ -11,14 +11,16 @@ public class Postava
 {
     private String jmeno;
     private String rec;
+    private String obrazek;
 
     /***************************************************************************
      * Konstruktor třídy
      */
-    public Postava(String jmeno, String rec)
+    public Postava(String jmeno, String rec, String obrazek)
     {
         this.jmeno = jmeno;
         this.rec = rec;
+        this.obrazek = obrazek;
     }
 
     /**
@@ -35,4 +37,10 @@ public class Postava
         return rec; 
     }
 
+    /**
+     * Vrací obrázek postavy.
+     */
+    public String getObrazek() {
+        return obrazek;
+    }
 }
