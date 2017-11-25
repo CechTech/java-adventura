@@ -1,5 +1,10 @@
+.menu-bar {
+    -fx-pref-height: 50px;
+}
+
 .button {
     -fx-pref-width: 180px;
+    -fx-pref-height: 40px;
 }
 
 .label {

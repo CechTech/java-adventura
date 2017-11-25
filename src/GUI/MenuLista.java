@@ -26,7 +26,7 @@ import main.Main;
  *
  * @author xzenj02
  */
-public class MenuLista extends MenuBar{
+public class MenuLista extends MenuBar {
 
     private IHra hra;
     private Main main;
@@ -97,7 +97,7 @@ public class MenuLista extends MenuBar{
             public void handle(ActionEvent event) {
 
                 Stage stage = new Stage();
-                stage.setTitle("Napovea");
+                stage.setTitle("Napoveda");
 
                 WebView webView = new WebView();
 
