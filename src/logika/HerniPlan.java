@@ -55,13 +55,13 @@ public class HerniPlan implements Subject {
      */
     private void zalozProstoryHry() {
         // Vytvoří jednotlivé prostory
-        hrad = new Prostor("hrad","hrad, kde sídlí královská rodina", 120, 129);
-        kouzelnyLes = new Prostor("kouzelnyLes", "Kouzelný les, kde můžeš potkat všechna kouzelná zvířata", 365, 209);
-        mlzneHory = new Prostor("mlzneHory","Mlžné hory, vysoké pohoří navěky zahalené v mlze kvalitního Absinthu a Ginu", 398, 399);
-        poustZapomneni = new Prostor("poustZapomneni","Poušť zapomnění, kde tequila připravila o rozum již mnoho cestovatelů", 139, 109);
-        ovocneSady = new Prostor("ovocneSady","Ovocné sady, domov a zásobárna domácí pálenky", 89, 198);
-        pristavPiratu = new Prostor("pristavPiratu","Přístav pirátů, místo kde existuje jen jedinné pravidlo: Pij rum!", 39, 289);
-        ledoveOstrovy = new Prostor("ledoveOstrovy","Ledové ostrovy, nejlepší vychlazenou whiskey a vodku najdeš na severu", 10, 387);
+        hrad = new Prostor("hrad","hrad, kde sídlí královská rodina", 315, 160); // 315 160
+        kouzelnyLes = new Prostor("kouzelnyLes", "Kouzelný les, kde můžeš potkat všechna kouzelná zvířata", 380, 200);
+        mlzneHory = new Prostor("mlzneHory","Mlžné hory, vysoké pohoří navěky zahalené v mlze kvalitního Absinthu a Ginu", 305, 290);
+        poustZapomneni = new Prostor("poustZapomneni","Poušť zapomnění, kde tequila připravila o rozum již mnoho cestovatelů", 450, 275);
+        ovocneSady = new Prostor("ovocneSady","Ovocné sady, domov a zásobárna domácí pálenky", 450, 100);
+        pristavPiratu = new Prostor("pristavPiratu","Přístav pirátů, místo kde existuje jen jedinné pravidlo: Pij rum!", 245, 155);
+        ledoveOstrovy = new Prostor("ledoveOstrovy","Ledové ostrovy, nejlepší vychlazenou whiskey a vodku najdeš na severu", 190, 70);
 
         // Zamkne vybrané prostory
         ledoveOstrovy.setZamek(true);

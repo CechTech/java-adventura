@@ -17,7 +17,7 @@ public class Mapa extends AnchorPane implements Observer {
     private IHra hra;
     ImageView pivon = new ImageView(new Image(
             Main.class.getResourceAsStream("/zdroje/pivo.png"),
-            40,40,true,true));
+            30,30,true,false));
 
     public Mapa(IHra hra) {
         this.hra = hra;
@@ -26,7 +26,7 @@ public class Mapa extends AnchorPane implements Observer {
     }
 
     private void init() {
-        ImageView obrazekImageView = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/adventura_mapa.jpg"), 400, 635, false, true));
+        ImageView obrazekImageView = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/mapa/mapa_kralostvi_lihovin.jpg"), 450, 635, false, true));
 
         this.getChildren().addAll(obrazekImageView, pivon);
         update();
