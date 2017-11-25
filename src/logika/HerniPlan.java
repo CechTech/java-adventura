@@ -7,7 +7,7 @@ import utils.Subject;
 
 /**
  * Class HerniPlan - třída představující mapu a stav adventury.
- * 
+ *
  * Tato třída inicializuje prvky ze kterých se hra skládá:
  * vytváří všechny prostory, propojuje je vzájemně pomocí východů
  * a pamatuje si aktuální prostor, ve kterém se hráč právě nachází.
@@ -29,23 +29,23 @@ public class HerniPlan implements Subject {
     public Prostor pristavPiratu;
     public Prostor ovocneSady;
     public Prostor kouzelnyLes;
-    public Prostor poustZapomneni;    
+    public Prostor poustZapomneni;
     public Postava jelenJagermeister;
     public Postava rudolfJelinek;
     public Postava kapitanMorgan;
     public Postava roaldAmundsen;
     public Postava strazceBeefeater;
     public Postava joseCuervo;
-    
+
     Batoh batoh;
-    
+
     /**
      *  Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví halu.
      */
     public HerniPlan() {
         zalozProstoryHry();
-        
+
         batoh = new Batoh();
 
     }
@@ -62,27 +62,27 @@ public class HerniPlan implements Subject {
         ovocneSady = new Prostor("ovocneSady","Ovocné sady, domov a zásobárna domácí pálenky", 89, 198);
         pristavPiratu = new Prostor("pristavPiratu","Přístav pirátů, místo kde existuje jen jedinné pravidlo: Pij rum!", 39, 289);
         ledoveOstrovy = new Prostor("ledoveOstrovy","Ledové ostrovy, nejlepší vychlazenou whiskey a vodku najdeš na severu", 10, 387);
-        
+
         // Zamkne vybrané prostory
         ledoveOstrovy.setZamek(true);
         mlzneHory.setZamek(true);
-        
+
         // Přiřazují se průchody mezi prostory (sousedící prostory)
         hrad.setVychod(kouzelnyLes);
         hrad.setVychod(pristavPiratu);
-        hrad.setVychod(ovocneSady);              
+        hrad.setVychod(ovocneSady);
         kouzelnyLes.setVychod(hrad);
         kouzelnyLes.setVychod(mlzneHory);
-        kouzelnyLes.setVychod(poustZapomneni);        
-        mlzneHory.setVychod(kouzelnyLes);     
-        poustZapomneni.setVychod(kouzelnyLes);     
-        ovocneSady.setVychod(hrad);        
-        pristavPiratu.setVychod(hrad);        
-        pristavPiratu.setVychod(ledoveOstrovy);       
+        kouzelnyLes.setVychod(poustZapomneni);
+        mlzneHory.setVychod(kouzelnyLes);
+        poustZapomneni.setVychod(kouzelnyLes);
+        ovocneSady.setVychod(hrad);
+        pristavPiratu.setVychod(hrad);
+        pristavPiratu.setVychod(ledoveOstrovy);
         ledoveOstrovy.setVychod(pristavPiratu);
-                
+
         aktualniProstor = hrad;  // hra začíná ve hradě
-        
+
         // Vytvoříme věci
         Vec penize = new Vec("penize", "Peněz není nikdy dost", true, false, "/zdroje/mec.png");
         Vec mapa = new Vec("mapa", "Mapa Králoství Lihovin", true, true, "/zdroje/mec.png");
@@ -97,7 +97,7 @@ public class HerniPlan implements Subject {
         Vec sudyRumu = new Vec("sudyRumu", "Obří zásoby pirátského nápoje", false, false, "/zdroje/mec.png");
         Vec kaktusy = new Vec("kaktusy", "Všude jsou samé kaktusy", false, false, "/zdroje/mec.png");
         Vec mec = new Vec("mec", "Smrtonosná zbraň", true, true, "/zdroje/mec.png");
-        
+
         // Vložíme věci do prostorů
         hrad.vlozVec(penize);
         hrad.vlozVec(mapa);
@@ -113,7 +113,7 @@ public class HerniPlan implements Subject {
         pristavPiratu.vlozVec(sudyRumu);
         ledoveOstrovy.vlozVec(kouzelnyRoh);
         ledoveOstrovy.vlozVec(horolezeckeVybaveni);
-            
+
         // Vytvorime nové postavy
         jelenJagermeister = new Postava ("jelenJagermeister", "Jelen Jägermeister: Proč mě voláš princi Pivoni? \n"
                 + "Pivoň: Pane lesů, můj otec král Abrelour zemřel a já mám nastoupit na jeho místo. \n"
@@ -195,31 +195,30 @@ public class HerniPlan implements Subject {
         pristavPiratu.vlozPostavu(kapitanBucanero);
         ledoveOstrovy.vlozPostavu(roaldAmundsen);
     }
-    
+
     /**
      *  Metoda vrací odkaz na aktuální prostor, ve ktetém se hráč právě nachází.
      *
      *@return     aktuální prostor
      */
-    
+
     public Prostor getAktualniProstor() {
         return aktualniProstor;
     }
-    
+
     /**
      *  Metoda nastaví aktuální prostor, používá se nejčastěji při přechodu mezi prostory
      *
      *@param  prostor nový aktuální prostor
      */
     public void setAktualniProstor(Prostor prostor) {
-
         aktualniProstor = prostor;
         notifyObservers();
     }
-    
+
     public Batoh getBatoh() {
         return batoh;
-     }
+    }
 
     public Prostor getViteznyProstor() {
         return viteznyProstor;

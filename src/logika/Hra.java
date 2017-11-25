@@ -3,7 +3,7 @@ package logika;
 
 /**
  * Třída Hra - třída představující logiku adventury.
- * 
+ *
  * Toto je hlavní třída  logiky aplikace.  Tato třída vytváří instanci třídy HerniPlan,
  * která inicializuje místnosti hry a vytváří seznam platných příkazů a instance tříd
  * provádějící jednotlivé příkazy. Vypisuje uvítací a ukončovací text hry. Také
@@ -24,6 +24,7 @@ public class Hra implements IHra {
      */
     public Hra() {
         herniPlan = new HerniPlan();
+        batoh = new Batoh();
         platnePrikazy = new SeznamPrikazu();
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
@@ -41,23 +42,23 @@ public class Hra implements IHra {
      */
     public String vratUvitani() {
         return "Vítej! \n" +
-               "Toto je příběh o princi Pivoni a jeho dlouhé cestě \n" +
-               "Napiš 'napoveda', když nebudeš vědět jak dál \n" +
-               "\n" +
-               herniPlan.getAktualniProstor().dlouhyPopis();
+                "Toto je příběh o princi Pivoni a jeho dlouhé cestě \n" +
+                "Napiš 'napoveda', když nebudeš vědět jak dál \n" +
+                "\n" +
+                herniPlan.getAktualniProstor().dlouhyPopis();
     }
-    
+
     /**
      *  Vrátí závěrečnou zprávu pro hráče.
      */
     public String vratEpilog() {
         return "Dík za hru. Čau.";
     }
-    
-    /** 
+
+    /**
      * Vrací true, pokud hra skončila.
      */
-     public boolean konecHry() {
+    public boolean konecHry() {
         return konecHry;
     }
 
@@ -69,12 +70,12 @@ public class Hra implements IHra {
      *@param  radek  text, který zadal uživatel jako příkaz do hry.
      *@return          vrací se řetězec, který se má vypsat na obrazovku
      */
-     public String zpracujPrikaz(String radek) {
+    public String zpracujPrikaz(String radek) {
         String [] slova = radek.split("[ \t]+");
         String slovoPrikazu = slova[0];
         String []parametry = new String[slova.length-1];
         for(int i=0 ;i<parametry.length;i++){
-           	parametry[i]= slova[i+1];  	
+            parametry[i]= slova[i+1];
         }
         String textKVypsani=" .... ";
         if (platnePrikazy.jePlatnyPrikaz(slovoPrikazu)) {
@@ -86,27 +87,26 @@ public class Hra implements IHra {
         }
         return textKVypsani;
     }
-    
-    
-     /**
+
+
+    /**
      *  Nastaví, že je konec hry, metodu využívá třída PrikazKonec,
      *  mohou ji použít i další implementace rozhraní IPrikaz.
-     *  
+     *
      *  @param  konecHry  hodnota false= konec hry, true = hra pokračuje
      */
     void setKonecHry(boolean konecHry) {
         this.konecHry = konecHry;
     }
-    
-    
-     /**
+
+
+    /**
      *  Metoda vrátí odkaz na herní plán, je využita hlavně v testech,
      *  kde se jejím prostřednictvím získává aktualní místnost hry.
-     *  
+     *
      *  @return     odkaz na herní plán
      */
-     public HerniPlan getHerniPlan(){
+    public HerniPlan getHerniPlan(){
         return herniPlan;
-     }
-    
+    }
 }

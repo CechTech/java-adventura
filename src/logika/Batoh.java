@@ -10,9 +10,9 @@ import java.util.HashMap;
  * @author Jiří Čech
  * @version 8.1.2017
  */
-public class Batoh
-{    
-    private static final int SLOTY = 2; // Nastaví počet volných míst v batohu
+public class Batoh {
+    // Nastaví počet volných míst v batohu
+    private static final int SLOTY = 2;
     public Map<String, Vec> seznamVeci;
 
     /***************************************************************************
@@ -24,20 +24,23 @@ public class Batoh
     }
 
     /**
-     * Přidá věc do batohu, pokud se tam vejde
-     * 
-     * @return 1 když se věc vloží
-     * @return 2 pokud je věc nepřenositelná
-     * @return 3 pokud není dostatek místa v batohu
+     * @return je místo v batohu
      */
-    public int vlozVec(Vec vec) {
-        if (seznamVeci.size() < SLOTY && vec.isPrenositelna()) {
-            seznamVeci.put(vec.getNazev(), vec);
-            return 1;
-        } else if (!vec.isPrenositelna()) {
-            return 2;
+    public boolean jeMistoVBatohu() {
+        if(getSeznamVeci().size() < SLOTY) {
+            return true;
+        } else {
+            return false;
         }
-        return 3;
+    }
+
+    public boolean vlozVec(Vec vec) {
+        if (jeMistoVBatohu() && vec.isPrenositelna()) {
+            getSeznamVeci().put(vec.getNazev(), vec);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -46,7 +49,7 @@ public class Batoh
      * @return true když ji najde
      */
     public boolean obsahujeVecVBatohu (String jmenoVeci) {
-        return seznamVeci.containsKey(jmenoVeci);
+        return getSeznamVeci().containsKey(jmenoVeci);
     }
 
     /**
@@ -54,21 +57,28 @@ public class Batoh
      */
     public String nazvyVeciVBatohu() {
         String nazvy = "Věci v batohu: ";
-        for (String jmenoVeci : seznamVeci.keySet()) {
+        for (String jmenoVeci : getSeznamVeci().keySet()) {
             nazvy += jmenoVeci + " ";
         }
         return nazvy;
     }
-    
+
     /**
     * Odebere věc z batohu
     */
     public Vec vyhodZBatohu(String nazev) {        
         Vec vyhozenaVec = null;
-        if (seznamVeci.containsKey(nazev)) {
-            vyhozenaVec = seznamVeci.get(nazev);
-            seznamVeci.remove(nazev);
+        if (getSeznamVeci().containsKey(nazev)) {
+            vyhozenaVec = getSeznamVeci().get(nazev);
+            getSeznamVeci().remove(nazev);
         }
         return vyhozenaVec;
+    }
+
+    /**
+     * @return the seznamVeci
+     */
+    public Map<String, Vec> getSeznamVeci() {
+        return seznamVeci;
     }
 }

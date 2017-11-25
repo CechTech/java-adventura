@@ -14,7 +14,7 @@ public class Vec
     private boolean prenositelna;
     public boolean pouzitelna;
     private String obrazek;
-    
+
     /***************************************************************************
      *  Konstruktor třídy
      */

@@ -4,6 +4,7 @@ import GUI.Mapa;
 import GUI.MenuLista;
 import GUI.Vychody;
 import GUI.VeciVProstoru;
+import GUI.Batoh;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -37,6 +38,7 @@ public class Main extends Application {
     private MenuLista menuLista;
     private Vychody vychody;
     private VeciVProstoru veciVProstoru;
+    private Batoh batoh;
 
     private Stage stage;
 
@@ -57,6 +59,7 @@ public class Main extends Application {
         centralText.setText(hra.vratUvitani());
         centralText.setEditable(false);
         borderPane.setCenter(centralText);
+        batoh = new Batoh(hra.getHerniPlan(), centralText, hra);
 
         //label s textem zadej prikaz
         Label zadejPrikazLabel = new Label("Zadej prikaz: ");
@@ -96,7 +99,7 @@ public class Main extends Application {
         //dolni lista s elementy
         FlowPane dolniLista = new FlowPane();
         dolniLista.setAlignment(Pos.CENTER);
-        dolniLista.getChildren().addAll(zadejPrikazLabel,zadejPrikazTextArea);
+        dolniLista.getChildren().addAll(zadejPrikazLabel, zadejPrikazTextArea);
 
         FlowPane pravaLista = new FlowPane();
         pravaLista.setAlignment(Pos.TOP_CENTER);
@@ -105,7 +108,9 @@ public class Main extends Application {
                 getVychody().getVychodNazev(),
                 getVychody().getSeznamVychodu(),
                 getVeciVProstoru().getVecNazev(),
-                getVeciVProstoru());
+                getVeciVProstoru(),
+                getBatoh().getBatohNazev(),
+                getBatoh());
 
         borderPane.setLeft(mapa);
         borderPane.setRight(pravaLista);
@@ -147,6 +152,13 @@ public class Main extends Application {
     }
 
     /**
+     * @return the batoh
+     */
+    public Batoh getBatoh() {
+        return batoh;
+    }
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -179,5 +191,4 @@ public class Main extends Application {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-
 }
