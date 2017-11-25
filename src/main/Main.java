@@ -127,7 +127,8 @@ public class Main extends Application {
         borderPane.setBottom(dolniLista);
         borderPane.setTop(menuLista);
 
-        Scene scene = new Scene(borderPane, 750, 450);
+        Scene scene = new Scene(borderPane, 1280, 720);
+        scene.getStylesheets().add("zdroje/styles.css");
         primaryStage.setTitle("Adventura");
 
         primaryStage.setScene(scene);

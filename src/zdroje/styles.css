@@ -1,0 +1,11 @@
+.button {
+    -fx-pref-width: 180px;
+}
+
+.label {
+    -fx-padding: 10px;
+}
+
+.list-view {
+    -fx-pref-width: 180px;
+}

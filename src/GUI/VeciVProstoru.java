@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import logika.IHra;
@@ -19,7 +20,7 @@ import utils.Observer;
 /**
  * @author Jiří Čech
  */
-public class VeciVProstoru extends HBox implements Observer {
+public class VeciVProstoru extends VBox implements Observer {
     private IHra hra;
     private Map<String, Vec> mapaVeciVProstoru;
     private Button tlacitkoVeci;

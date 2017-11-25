@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import logika.HerniPlan;
@@ -18,7 +19,7 @@ import utils.Observer;
 /**
  * @author Jiří Čech
  */
-public class Batoh extends HBox implements Observer {
+public class Batoh extends VBox implements Observer {
     private HerniPlan plan;
     private IHra hra;
     private Label batohNazev;

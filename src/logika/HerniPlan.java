@@ -85,8 +85,6 @@ public class HerniPlan implements Subject {
 
         // Vytvoříme věci
         Vec penize = new Vec("penize", "Peněz není nikdy dost", true, false, "/zdroje/mec.png");
-        Vec mapa = new Vec("mapa", "Mapa Králoství Lihovin", true, true, "/zdroje/mec.png");
-        Vec koruna = new Vec("koruna", "Korunovační klenoty", false, false, "/zdroje/mec.png");
         Vec piratskaMince = new Vec("piratskaMince", "Pro tuhle jsou piráti ochotni riskovat život", true, true, "/zdroje/mec.png");
         Vec kouzelnyRoh = new Vec("kouzelnyRoh", "Přivolá kouzelného jelena", true, true, "/zdroje/mec.png");
         Vec horolezeckeVybaveni = new Vec("horolezeckeVybaveni", "Bez něj se do hor nedá dostat", true, true, "/zdroje/mec.png");
@@ -100,8 +98,6 @@ public class HerniPlan implements Subject {
 
         // Vložíme věci do prostorů
         hrad.vlozVec(penize);
-        hrad.vlozVec(mapa);
-        hrad.vlozVec(koruna);
         hrad.vlozVec(prazdnaLahev);
         hrad.vlozVec(mec);
         ovocneSady.vlozVec(prazdnaLahev);

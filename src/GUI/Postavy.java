@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import logika.IHra;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 /**
  * @author Jiří Čech
  */
-public class Postavy extends HBox implements Observer {
+public class Postavy extends VBox implements Observer {
     private IHra hra;
     private HashMap<String, Postava> mapaPostavVProstoru;
     private Button tlacitkoPostavy;
