@@ -48,7 +48,7 @@ public class Main extends Application {
 
         hra = new Hra();
         mapa = new Mapa(hra);
-        menuLista = new MenuLista(hra, this);
+        menuLista = new MenuLista(hra, this, stage);
         vychody = new Vychody(hra);
 
         BorderPane borderPane = new BorderPane();
@@ -59,7 +59,6 @@ public class Main extends Application {
         centralText.setText(hra.vratUvitani());
         centralText.setEditable(false);
         borderPane.setCenter(centralText);
-        batoh = new Batoh(hra.getHerniPlan(), centralText, hra);
 
         //label s textem zadej prikaz
         Label zadejPrikazLabel = new Label("Zadej prikaz: ");
@@ -100,6 +99,8 @@ public class Main extends Application {
         FlowPane dolniLista = new FlowPane();
         dolniLista.setAlignment(Pos.CENTER);
         dolniLista.getChildren().addAll(zadejPrikazLabel, zadejPrikazTextArea);
+
+        batoh = new Batoh(hra.getHerniPlan(), centralText, hra);
 
         FlowPane pravaLista = new FlowPane();
         pravaLista.setAlignment(Pos.TOP_CENTER);

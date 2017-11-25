@@ -39,13 +39,6 @@ public class Mapa extends AnchorPane implements Observer {
         update();
     }
 
-    public void newGame(IHra novaHra){
-        hra.getHerniPlan().removeObserver(this);
-        hra = novaHra;
-        hra.getHerniPlan().registerObserver(this);
-        update();
-    }
-
     @Override
     public void update() {
         this.setTopAnchor(tecka, hra.getHerniPlan().getAktualniProstor().getPosX());

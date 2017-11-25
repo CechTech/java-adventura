@@ -47,17 +47,6 @@ public class Vychody extends ListView implements Observer {
         update();
     }
 
-    /**
-     * Přeregistrování observerů při nové hře
-     * @param novaHra -
-     */
-    void newGame(IHra novaHra) {
-        hra.getHerniPlan().removeObserver(this);
-        hra = novaHra;
-        hra.getHerniPlan().registerObserver(this);
-        update();
-    }
-
     @Override
     public void update() {
         Collection<Prostor> sousedniProstory = hra.getHerniPlan().getAktualniProstor().getVychody();

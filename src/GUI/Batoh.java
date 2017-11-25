@@ -67,17 +67,6 @@ public class Batoh extends HBox implements Observer {
         }
     }
 
-    /**
-     * Přeregistrování observerů při nové hře
-     * @param novaHra -
-     */
-    void newGame(IHra novaHra) {
-        hra.getHerniPlan().removeObserver(this);
-        hra = novaHra;
-        hra.getHerniPlan().registerObserver(this);
-        update();
-    }
-
     @Override
     public void update() {
         this.getChildren().clear();

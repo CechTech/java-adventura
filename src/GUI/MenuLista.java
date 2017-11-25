@@ -30,10 +30,12 @@ public class MenuLista extends MenuBar{
 
     private IHra hra;
     private Main main;
+    private Stage stage;
 
-    public MenuLista(IHra hra, Main main){
+    public MenuLista(IHra hra, Main main, Stage stage){
         this.hra = hra;
         this.main = main;
+        this.stage = stage;
         init();
     }
 
@@ -69,13 +71,7 @@ public class MenuLista extends MenuBar{
 
             @Override
             public void handle(ActionEvent event) {
-                hra = new Hra();
-                main.getMapa().newGame(hra);
-                main.getVychody().newGame(hra);
-                main.getVeciVProstoru().newGame(hra);
-                main.getBatoh().newGame(hra);
-                main.setHra(hra);
-                main.getCentralText().setText(hra.vratUvitani());
+                main.start(stage);
             }
         });
 
