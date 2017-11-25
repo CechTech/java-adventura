@@ -80,6 +80,9 @@ public class Main extends Application {
 
                 if (hra.konecHry()) {
                     zadejPrikazTextArea.setEditable(false);
+                    vychody.getSeznamVychodu().setDisable(true);
+                    veciVProstoru.setDisable(true);
+                    batoh.setDisable(true);
                     centralText.appendText(hra.vratEpilog());
                 }
             }
