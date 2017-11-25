@@ -90,8 +90,6 @@ public class HerniPlan implements Subject {
         Vec horolezeckeVybaveni = new Vec("horolezeckeVybaveni", "Bez něj se do hor nedá dostat", true, true, "/zdroje/mec.png");
         Vec prazdnaLahev = new Vec("prazdnaLahev", "Láhev od pálenky se špuntem", true, false, "/zdroje/mec.png");
         Vec svestky = new Vec("svestky", "Švestky k jídlu, nebo na slivovici", false, false, "/zdroje/mec.png");
-        Vec lahevMyslivce = new Vec("lahevMyslivce", "Stará myslivecká", false, false, "/zdroje/mec.png");
-        Vec lahevJagermeistera = new Vec("lahevJagermeistera", "Jägermeister", false, false, "/zdroje/mec.png");
         Vec sudyRumu = new Vec("sudyRumu", "Obří zásoby pirátského nápoje", false, false, "/zdroje/mec.png");
         Vec kaktusy = new Vec("kaktusy", "Všude jsou samé kaktusy", false, false, "/zdroje/mec.png");
         Vec mec = new Vec("mec", "Smrtonosná zbraň", true, true, "/zdroje/mec.png");
@@ -102,8 +100,6 @@ public class HerniPlan implements Subject {
         hrad.vlozVec(mec);
         ovocneSady.vlozVec(prazdnaLahev);
         ovocneSady.vlozVec(svestky);
-        kouzelnyLes.vlozVec(lahevMyslivce);
-        kouzelnyLes.vlozVec(lahevJagermeistera);
         poustZapomneni.vlozVec(piratskaMince);
         poustZapomneni.vlozVec(kaktusy);
         pristavPiratu.vlozVec(sudyRumu);
