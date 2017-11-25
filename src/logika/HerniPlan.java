@@ -84,14 +84,14 @@ public class HerniPlan implements Subject {
         aktualniProstor = hrad;  // hra začíná ve hradě
 
         // Vytvoříme věci
-        Vec penize = new Vec("penize", "Peněz není nikdy dost", true, false, "/zdroje/mec.png");
-        Vec piratskaMince = new Vec("piratskaMince", "Pro tuhle jsou piráti ochotni riskovat život", true, true, "/zdroje/mec.png");
-        Vec kouzelnyRoh = new Vec("kouzelnyRoh", "Přivolá kouzelného jelena", true, true, "/zdroje/mec.png");
-        Vec horolezeckeVybaveni = new Vec("horolezeckeVybaveni", "Bez něj se do hor nedá dostat", true, true, "/zdroje/mec.png");
-        Vec prazdnaLahev = new Vec("prazdnaLahev", "Láhev od pálenky se špuntem", true, false, "/zdroje/mec.png");
-        Vec svestky = new Vec("svestky", "Švestky k jídlu, nebo na slivovici", false, false, "/zdroje/mec.png");
-        Vec sudyRumu = new Vec("sudyRumu", "Obří zásoby pirátského nápoje", false, false, "/zdroje/mec.png");
-        Vec kaktusy = new Vec("kaktusy", "Všude jsou samé kaktusy", false, false, "/zdroje/mec.png");
+        Vec penize = new Vec("penize", "Peněz není nikdy dost", true, false, "/zdroje/penize.png");
+        Vec piratskaMince = new Vec("piratskaMince", "Pro tuhle jsou piráti ochotni riskovat život", true, true, "/zdroje/piratska_mince.png");
+        Vec kouzelnyRoh = new Vec("kouzelnyRoh", "Přivolá kouzelného jelena", true, true, "/zdroje/lesni_roh.png");
+        Vec horolezeckeVybaveni = new Vec("horolezeckeVybaveni", "Bez něj se do hor nedá dostat", true, true, "/zdroje/lano.png");
+        Vec prazdnaLahev = new Vec("prazdnaLahev", "Láhev od pálenky se špuntem", true, false, "/zdroje/prazdna_lahev.png");
+        Vec svestky = new Vec("svestky", "Švestky k jídlu, nebo na slivovici", false, false, "/zdroje/svestky.png");
+        Vec sudyRumu = new Vec("sudyRumu", "Obří zásoby pirátského nápoje", false, false, "/zdroje/sud.png");
+        Vec kaktusy = new Vec("kaktusy", "Všude jsou samé kaktusy", false, false, "/zdroje/kaktus.png");
         Vec mec = new Vec("mec", "Smrtonosná zbraň", true, true, "/zdroje/mec.png");
 
         // Vložíme věci do prostorů

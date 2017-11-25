@@ -5,6 +5,8 @@
 .button {
     -fx-pref-width: 180px;
     -fx-pref-height: 40px;
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 10px;
 }
 
 .label {
