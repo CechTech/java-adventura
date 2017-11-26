@@ -54,7 +54,8 @@ public class Batoh extends VBox implements Observer {
                     Main.class.getResourceAsStream(pomocnaVec.getObrazek()), 30, 30, false, false))
             );
             tlacitkoZahod = new Button("X");
-
+            tlacitkoZahod.getStyleClass().add("button-zahod");
+            
             this.getChildren().addAll(getTlacitkoBatohu(), getTlacitkoZahod());
 
             tlacitkoBatohu.setOnMouseClicked(event -> {

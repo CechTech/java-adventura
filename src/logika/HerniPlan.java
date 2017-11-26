@@ -47,7 +47,6 @@ public class HerniPlan implements Subject {
         zalozProstoryHry();
 
         batoh = new Batoh();
-
     }
     /**
      *  Vytváří jednotlivé prostory a propojuje je pomocí východů.
@@ -92,12 +91,10 @@ public class HerniPlan implements Subject {
         Vec svestky = new Vec("svestky", "Švestky k jídlu, nebo na slivovici", false, false, "/zdroje/svestky.png");
         Vec sudyRumu = new Vec("sudyRumu", "Obří zásoby pirátského nápoje", false, false, "/zdroje/sud.png");
         Vec kaktusy = new Vec("kaktusy", "Všude jsou samé kaktusy", false, false, "/zdroje/kaktus.png");
-        Vec mec = new Vec("mec", "Smrtonosná zbraň", true, true, "/zdroje/mec.png");
 
         // Vložíme věci do prostorů
         hrad.vlozVec(penize);
         hrad.vlozVec(prazdnaLahev);
-        hrad.vlozVec(mec);
         ovocneSady.vlozVec(prazdnaLahev);
         ovocneSady.vlozVec(svestky);
         poustZapomneni.vlozVec(piratskaMince);
