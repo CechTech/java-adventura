@@ -33,7 +33,7 @@ public class Main extends Application {
     private PanelMapa panelMapa;
     private MenuLista menuLista;
     private Vychody vychody;
-    private VeciVProstoru veciVProstoru;
+    private PanelVeciVProstoru panelVeciVProstoru;
     private PanelBatoh panelBatoh;
     private PanelPostavy panelPostavy;
     private Volby volby;
@@ -78,7 +78,7 @@ public class Main extends Application {
                 if (hra.konecHry()) {
                     zadejPrikazTextArea.setEditable(false);
                     vychody.getSeznamVychodu().setDisable(true);
-                    veciVProstoru.setDisable(true);
+                    panelVeciVProstoru.setDisable(true);
                     panelBatoh.setDisable(true);
                     panelPostavy.setDisable(true);
                     volby.setDisable(true);
@@ -102,7 +102,7 @@ public class Main extends Application {
         dolniLista.setAlignment(Pos.CENTER);
         dolniLista.getChildren().addAll(zadejPrikazLabel, zadejPrikazTextArea);
 
-        veciVProstoru = new VeciVProstoru(hra, centralText);
+        panelVeciVProstoru = new PanelVeciVProstoru(hra, centralText);
         panelPostavy = new PanelPostavy(hra, centralText);
         panelBatoh = new PanelBatoh(hra.getHerniPlan(), centralText, hra);
         volby = new Volby(hra, centralText);
@@ -113,8 +113,8 @@ public class Main extends Application {
         pravaLista.getChildren().addAll(
                 getVychody().getVychodNazev(),
                 getVychody().getSeznamVychodu(),
-                getVeciVProstoru().getVecNazev(),
-                getVeciVProstoru(),
+                getPanelVeciVProstoru().getVecLabel(),
+                getPanelVeciVProstoru(),
                 getPanelBatoh().getBatohLabel(),
                 getPanelBatoh(),
                 getPanelPostavy().getPostavaLabel(),
@@ -156,10 +156,10 @@ public class Main extends Application {
     }
 
     /**
-     * @return the veciVProstoru
+     * @return the panelVeciVProstoru
      */
-    public VeciVProstoru getVeciVProstoru() {
-        return veciVProstoru;
+    public PanelVeciVProstoru getPanelVeciVProstoru() {
+        return panelVeciVProstoru;
     }
 
     /**
