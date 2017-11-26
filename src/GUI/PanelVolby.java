@@ -53,9 +53,11 @@ public class PanelVolby extends HBox implements Observer {
         tlacitkoVolbyB.getStyleClass().add("tlacitko-volim");
         tlacitkoVolbyC.getStyleClass().add("tlacitko-volim");
 
-        for (String postava : mapaPostavVProstoru.keySet()) {
+        for(String postava : mapaPostavVProstoru.keySet()) {
             Postava pomocnaPostava = mapaPostavVProstoru.get(postava);
-            if(pomocnaPostava.isVazal() && !Objects.equals(hra.getHerniPlan().getAktualniProstor().getNazev(), "hrad")) {
+            String auktualniProstor = hra.getHerniPlan().getAktualniProstor().getNazev();
+
+            if(pomocnaPostava.isVazal() && !Objects.equals(auktualniProstor, "hrad")) {
                 this.getChildren().addAll(tlacitkoVolbyA, tlacitkoVolbyB, tlacitkoVolbyC);
             }
         }
@@ -81,9 +83,11 @@ public class PanelVolby extends HBox implements Observer {
         tlacitkoVolbyB.getStyleClass().add("tlacitko-volim");
         tlacitkoVolbyC.getStyleClass().add("tlacitko-volim");
 
-        for (String postava : mapaPostavVProstoru.keySet()) {
+        for(String postava : mapaPostavVProstoru.keySet()) {
             Postava pomocnaPostava = mapaPostavVProstoru.get(postava);
-            if(pomocnaPostava.isVazal() && !Objects.equals(hra.getHerniPlan().getAktualniProstor().getNazev(), "hrad")) {
+            String auktualniProstor = hra.getHerniPlan().getAktualniProstor().getNazev();
+
+            if(pomocnaPostava.isVazal() && !Objects.equals(auktualniProstor, "hrad")) {
                 this.getChildren().addAll(tlacitkoVolbyA, tlacitkoVolbyB, tlacitkoVolbyC);
             }
         }
