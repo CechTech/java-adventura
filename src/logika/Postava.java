@@ -12,15 +12,17 @@ public class Postava
     private String jmeno;
     private String rec;
     private String obrazek;
+    private boolean vazal;
 
     /***************************************************************************
      * Konstruktor třídy
      */
-    public Postava(String jmeno, String rec, String obrazek)
+    public Postava(String jmeno, String rec, String obrazek, boolean vazal)
     {
         this.jmeno = jmeno;
         this.rec = rec;
         this.obrazek = obrazek;
+        this.vazal = vazal;
     }
 
     /**
@@ -42,5 +44,9 @@ public class Postava
      */
     public String getObrazek() {
         return obrazek;
+    }
+
+    public boolean isVazal() {
+        return vazal;
     }
 }
