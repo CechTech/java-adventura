@@ -24,6 +24,7 @@ public class Batoh extends VBox implements Observer {
     private IHra hra;
     private Label batohNazev;
     private Button tlacitkoBatohu;
+    private Button tlacitkoZahod;
     private TextArea centralText;
 
     /**
@@ -52,10 +53,22 @@ public class Batoh extends VBox implements Observer {
             tlacitkoBatohu = new Button(pomocnaVec.getNazev(), new ImageView(new Image(
                     Main.class.getResourceAsStream(pomocnaVec.getObrazek()), 30, 30, false, false))
             );
-
-            this.getChildren().add(getTlacitkoBatohu());
+            tlacitkoZahod = new Button("X");
+            tlacitkoZahod.getStyleClass().add("button-zahod");
+            
+            this.getChildren().addAll(getTlacitkoBatohu(), getTlacitkoZahod());
 
             tlacitkoBatohu.setOnMouseClicked(event -> {
+                String vstupniPrikaz = "pouzi " + pomocnaVec.getNazev();
+                String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
+
+                centralText.appendText("\n" + vstupniPrikaz + "\n");
+                centralText.appendText("\n" + odpovedHry + "\n");
+
+                plan.notifyObservers();
+            });
+
+            tlacitkoZahod.setOnMouseClicked(event -> {
                 String vstupniPrikaz = "vyhod " + pomocnaVec.getNazev();
                 String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
 
@@ -78,10 +91,22 @@ public class Batoh extends VBox implements Observer {
             tlacitkoBatohu = new Button(pomocnaVec.getNazev(), new ImageView(new Image(
                     Main.class.getResourceAsStream(pomocnaVec.getObrazek()), 30, 30, false, false))
             );
+            tlacitkoZahod = new Button("X");
+            tlacitkoZahod.getStyleClass().add("button-zahod");
 
-            this.getChildren().addAll(getTlacitkoBatohu());
+            this.getChildren().addAll(getTlacitkoBatohu(), getTlacitkoZahod());
 
             tlacitkoBatohu.setOnMouseClicked(event -> {
+                String vstupniPrikaz = "pouzi " + pomocnaVec.getNazev();
+                String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
+
+                centralText.appendText("\n" + vstupniPrikaz + "\n");
+                centralText.appendText("\n" + odpovedHry + "\n");
+
+                plan.notifyObservers();
+            });
+
+            tlacitkoZahod.setOnMouseClicked(event -> {
                 String vstupniPrikaz = "vyhod " + pomocnaVec.getNazev();
                 String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
 
@@ -112,5 +137,13 @@ public class Batoh extends VBox implements Observer {
      */
     public Button getTlacitkoBatohu() {
         return tlacitkoBatohu;
+    }
+
+
+    /**
+     * @return the tlacitkoZahod
+     */
+    public Button getTlacitkoZahod() {
+        return tlacitkoZahod;
     }
 }
