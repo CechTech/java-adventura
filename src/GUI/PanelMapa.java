@@ -12,13 +12,13 @@ import logika.IHra;
 import main.Main;
 import utils.Observer;
 
-public class Mapa extends AnchorPane implements Observer {
+public class PanelMapa extends AnchorPane implements Observer {
     private IHra hra;
     private ImageView pivon = new ImageView(new Image(
             Main.class.getResourceAsStream("/zdroje/pivo.png"),
             30,30,true,false));
 
-    public Mapa(IHra hra) {
+    public PanelMapa(IHra hra) {
         this.hra = hra;
         hra.getHerniPlan().registerObserver(this);
         init();

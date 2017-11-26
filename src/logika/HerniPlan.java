@@ -16,7 +16,7 @@ import utils.Subject;
  * @version    ZS 2016/2017
  */
 public class HerniPlan implements Subject {
-    // PostavyPanel a prostory jsou využíváný i v jiných třídách
+    // Postavy a prostory jsou využíváný i v jiných třídách
     // Musí být veřejné
 
     private Prostor viteznyProstor;

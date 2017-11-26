@@ -18,7 +18,7 @@ import utils.Observer;
 /**
  * @author Jiří Čech
  */
-public class BatohPanel extends VBox implements Observer {
+public class PanelBatoh extends VBox implements Observer {
     private HerniPlan plan;
     private IHra hra;
     private Label batohLabel;
@@ -32,7 +32,7 @@ public class BatohPanel extends VBox implements Observer {
      * @param text -
      * @param hra -
      */
-    public BatohPanel(HerniPlan plan, TextArea text, IHra hra) {
+    public PanelBatoh(HerniPlan plan, TextArea text, IHra hra) {
         this.plan = plan;
         plan.registerObserver(this);
         centralText = text;
@@ -41,7 +41,7 @@ public class BatohPanel extends VBox implements Observer {
     }
 
     private void init() {
-        batohLabel = new Label("BatohPanel:");
+        batohLabel = new Label("PanelBatoh:");
         batohLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         batohLabel.setPrefWidth(200);
 

@@ -17,7 +17,7 @@ import java.util.HashMap;
 /**
  * @author Jiří Čech
  */
-public class PostavyPanel extends VBox implements Observer {
+public class PanelPostavy extends VBox implements Observer {
     private IHra hra;
     private HashMap<String, Postava> mapaPostavVProstoru;
     private Button tlacitkoPostavy;
@@ -29,7 +29,7 @@ public class PostavyPanel extends VBox implements Observer {
      * @param hra -
      * @param text -
      */
-    public PostavyPanel(IHra hra, TextArea text) {
+    public PanelPostavy(IHra hra, TextArea text) {
         this.hra = hra;
         hra.getHerniPlan().registerObserver(this);
         this.centralText = text;
@@ -37,7 +37,7 @@ public class PostavyPanel extends VBox implements Observer {
     }
 
     private void init() {
-        postavaLabel = new Label("PostavyPanel v prostoru:");
+        postavaLabel = new Label("PanelPostavy v prostoru:");
         postavaLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         postavaLabel.setPrefWidth(200);
         mapaPostavVProstoru = hra.getHerniPlan().getAktualniProstor().getSeznamPostav();

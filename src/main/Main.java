@@ -1,12 +1,6 @@
 package main;
 
-import GUI.Mapa;
-import GUI.MenuLista;
-import GUI.Vychody;
-import GUI.VeciVProstoru;
-import GUI.BatohPanel;
-import GUI.PostavyPanel;
-import GUI.Volby;
+import GUI.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -36,12 +30,12 @@ public class Main extends Application {
     }
     private TextField zadejPrikazTextArea;
 
-    private Mapa mapa;
+    private PanelMapa panelMapa;
     private MenuLista menuLista;
     private Vychody vychody;
     private VeciVProstoru veciVProstoru;
-    private BatohPanel batohPanel;
-    private PostavyPanel postavyPanel;
+    private PanelBatoh panelBatoh;
+    private PanelPostavy panelPostavy;
     private Volby volby;
 
     private Stage stage;
@@ -51,7 +45,7 @@ public class Main extends Application {
         this.setStage(primaryStage);
 
         hra = new Hra();
-        mapa = new Mapa(hra);
+        panelMapa = new PanelMapa(hra);
         menuLista = new MenuLista(this, stage);
         vychody = new Vychody(hra);
 
@@ -85,8 +79,8 @@ public class Main extends Application {
                     zadejPrikazTextArea.setEditable(false);
                     vychody.getSeznamVychodu().setDisable(true);
                     veciVProstoru.setDisable(true);
-                    batohPanel.setDisable(true);
-                    postavyPanel.setDisable(true);
+                    panelBatoh.setDisable(true);
+                    panelPostavy.setDisable(true);
                     volby.setDisable(true);
                     centralText.appendText(hra.vratEpilog());
                 }
@@ -109,8 +103,8 @@ public class Main extends Application {
         dolniLista.getChildren().addAll(zadejPrikazLabel, zadejPrikazTextArea);
 
         veciVProstoru = new VeciVProstoru(hra, centralText);
-        postavyPanel = new PostavyPanel(hra, centralText);
-        batohPanel = new BatohPanel(hra.getHerniPlan(), centralText, hra);
+        panelPostavy = new PanelPostavy(hra, centralText);
+        panelBatoh = new PanelBatoh(hra.getHerniPlan(), centralText, hra);
         volby = new Volby(hra, centralText);
 
         FlowPane pravaLista = new FlowPane();
@@ -121,14 +115,14 @@ public class Main extends Application {
                 getVychody().getSeznamVychodu(),
                 getVeciVProstoru().getVecNazev(),
                 getVeciVProstoru(),
-                getBatohPanel().getBatohLabel(),
-                getBatohPanel(),
-                getPostavyPanel().getPostavaLabel(),
-                getPostavyPanel(),
+                getPanelBatoh().getBatohLabel(),
+                getPanelBatoh(),
+                getPanelPostavy().getPostavaLabel(),
+                getPanelPostavy(),
                 getVolby().getVolbaNazev(),
                 getVolby());
 
-        borderPane.setLeft(mapa);
+        borderPane.setLeft(panelMapa);
         borderPane.setRight(pravaLista);
         borderPane.setBottom(dolniLista);
         borderPane.setTop(menuLista);
@@ -150,8 +144,8 @@ public class Main extends Application {
         this.getCentralText().appendText("\n" + vstupniPrikaz + "\n");
     }
 
-    public Mapa getMapa() {
-        return mapa;
+    public PanelMapa getPanelMapa() {
+        return panelMapa;
     }
 
     /**
@@ -169,17 +163,17 @@ public class Main extends Application {
     }
 
     /**
-     * @return the batohPanel
+     * @return the panelBatoh
      */
-    public BatohPanel getBatohPanel() {
-        return batohPanel;
+    public PanelBatoh getPanelBatoh() {
+        return panelBatoh;
     }
 
     /**
-     * @return the postavyPanel
+     * @return the panelPostavy
      */
-    public PostavyPanel getPostavyPanel() {
-        return postavyPanel;
+    public PanelPostavy getPanelPostavy() {
+        return panelPostavy;
     }
 
     /**
