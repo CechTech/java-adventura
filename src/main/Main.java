@@ -6,6 +6,7 @@ import GUI.Vychody;
 import GUI.VeciVProstoru;
 import GUI.Batoh;
 import GUI.Postavy;
+import GUI.Volby;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -41,6 +42,7 @@ public class Main extends Application {
     private VeciVProstoru veciVProstoru;
     private Batoh batoh;
     private Postavy postavy;
+    private Volby volby;
 
     private Stage stage;
 
@@ -57,8 +59,6 @@ public class Main extends Application {
 
         // Text s prubehem hry
         centralText = new TextArea();
-        veciVProstoru = new VeciVProstoru(hra, centralText);
-        postavy = new Postavy(hra, centralText);
         centralText.setText(hra.vratUvitani());
         centralText.setEditable(false);
         borderPane.setCenter(centralText);
@@ -87,6 +87,7 @@ public class Main extends Application {
                     veciVProstoru.setDisable(true);
                     batoh.setDisable(true);
                     postavy.setDisable(true);
+                    volby.setDisable(true);
                     centralText.appendText(hra.vratEpilog());
                 }
             }
@@ -107,7 +108,10 @@ public class Main extends Application {
         dolniLista.setAlignment(Pos.CENTER);
         dolniLista.getChildren().addAll(zadejPrikazLabel, zadejPrikazTextArea);
 
+        veciVProstoru = new VeciVProstoru(hra, centralText);
+        postavy = new Postavy(hra, centralText);
         batoh = new Batoh(hra.getHerniPlan(), centralText, hra);
+        volby = new Volby(hra, centralText);
 
         FlowPane pravaLista = new FlowPane();
         pravaLista.setAlignment(Pos.TOP_CENTER);
@@ -120,7 +124,9 @@ public class Main extends Application {
                 getBatoh().getBatohNazev(),
                 getBatoh(),
                 getPostavy().getPostavaNazev(),
-                getPostavy());
+                getPostavy(),
+                getVolby().getVolbaNazev(),
+                getVolby());
 
         borderPane.setLeft(mapa);
         borderPane.setRight(pravaLista);
@@ -174,6 +180,13 @@ public class Main extends Application {
      */
     public Postavy getPostavy() {
         return postavy;
+    }
+
+    /**
+     * @return the volby
+     */
+    public Volby getVolby() {
+        return volby;
     }
 
     /**

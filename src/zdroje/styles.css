@@ -11,15 +11,15 @@
 
 .button-zahod {
     -fx-padding: 0;
-    -fx-pref-width: 25px;
-    -fx-pref-height: 25px;
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
     -fx-background-color: #dedede;
     -fx-background-radius: 3px;
     -fx-text-fill: #8f8f8f;
     -fx-text-alignment: center;
     -fx-alignment: center;
     -fx-font-weight: bold;
-    -fx-translate-x: 155px;
+    -fx-translate-x: 160px;
     -fx-translate-y: -55px;
     -fx-border-style: solid;
     -fx-border-color: #8f8f8f;
@@ -31,6 +31,14 @@
     -fx-background-color: #efefef;
     -fx-text-fill: #8f8f8f;
     -fx-border-color: #8f8f8f;
+}
+
+.tlacitko-volim {
+    -fx-pref-width: 60px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
 }
 
 .label {

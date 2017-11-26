@@ -116,4 +116,8 @@ public class Postavy extends VBox implements Observer {
     public Button getTlacitkoPostavy() {
         return tlacitkoPostavy;
     }
+
+    public HashMap<String, Postava> getMapaPostavVProstoru() {
+        return mapaPostavVProstoru;
+    }
 }
