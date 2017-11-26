@@ -2,10 +2,7 @@ package main;
 
 import GUI.*;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -30,8 +27,6 @@ public class Main extends Application {
     }
     private TextField zadejPrikazTextArea;
 
-    private PanelMapa panelMapa;
-    private MenuLista menuLista;
     private PanelVychody panelVychody;
     private PanelVeciVProstoru panelVeciVProstoru;
     private PanelBatoh panelBatoh;
@@ -45,8 +40,8 @@ public class Main extends Application {
         this.setStage(primaryStage);
 
         hra = new Hra();
-        panelMapa = new PanelMapa(hra);
-        menuLista = new MenuLista(this, stage);
+        PanelMapa panelMapa = new PanelMapa(hra);
+        MenuLista menuLista = new MenuLista(this, stage);
         panelVychody = new PanelVychody(hra);
 
         BorderPane borderPane = new BorderPane();
@@ -58,43 +53,36 @@ public class Main extends Application {
         borderPane.setCenter(centralText);
 
         //label s textem zadej prikaz
-        Label zadejPrikazLabel = new Label("Zadej prikaz: ");
+        Label zadejPrikazLabel = new Label("Zadej přikaz: ");
         zadejPrikazLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
 
         // text area do ktere piseme prikazy
         zadejPrikazTextArea = new TextField("");
-        zadejPrikazTextArea.setOnAction(new EventHandler<ActionEvent>() {
+        zadejPrikazTextArea.setOnAction(event -> {
+            String vstupniPrikaz = zadejPrikazTextArea.getText();
+            String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
 
-            @Override
-            public void handle(ActionEvent event) {
-                String vstupniPrikaz = zadejPrikazTextArea.getText();
-                String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
+            centralText.appendText("\n" + vstupniPrikaz + "\n");
+            centralText.appendText("\n" + odpovedHry + "\n");
 
-                centralText.appendText("\n" + vstupniPrikaz + "\n");
-                centralText.appendText("\n" + odpovedHry + "\n");
+            zadejPrikazTextArea.setText("");
 
-                zadejPrikazTextArea.setText("");
-
-                if (hra.konecHry()) {
-                    zadejPrikazTextArea.setEditable(false);
-                    panelVychody.getSeznamVychodu().setDisable(true);
-                    panelVeciVProstoru.setDisable(true);
-                    panelBatoh.setDisable(true);
-                    panelPostavy.setDisable(true);
-                    panelVolby.setDisable(true);
-                    centralText.appendText(hra.vratEpilog());
-                }
+            if (hra.konecHry()) {
+                zadejPrikazTextArea.setEditable(false);
+                panelVychody.getSeznamVychodu().setDisable(true);
+                panelVeciVProstoru.setDisable(true);
+                panelBatoh.setDisable(true);
+                panelPostavy.setDisable(true);
+                panelVolby.setDisable(true);
+                centralText.appendText(hra.vratEpilog());
             }
         });
 
-        getPanelVychody().getSeznamVychodu().setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                String nazevVychodu = getPanelVychody().getSeznamVychodu().getSelectionModel().getSelectedItem();
-                String vstupniPrikaz = "jdi " + nazevVychodu;
-                String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
-                appendCentralText(odpovedHry);
-            }
+        panelVychody.getSeznamVychodu().setOnMouseClicked(event -> {
+            String nazevVychodu = panelVychody.getSeznamVychodu().getSelectionModel().getSelectedItem();
+            String vstupniPrikaz = "jdi " + nazevVychodu;
+            String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
+            appendCentralText(odpovedHry);
         });
 
         //dolni lista s elementy
@@ -111,16 +99,16 @@ public class Main extends Application {
         pravaLista.setAlignment(Pos.TOP_CENTER);
         pravaLista.setPrefWidth(200);
         pravaLista.getChildren().addAll(
-                getPanelVychody().getVychodLabel(),
-                getPanelVychody().getSeznamVychodu(),
-                getPanelVeciVProstoru().getVecLabel(),
-                getPanelVeciVProstoru(),
-                getPanelBatoh().getBatohLabel(),
-                getPanelBatoh(),
-                getPanelPostavy().getPostavaLabel(),
-                getPanelPostavy(),
-                getPanelVolby().getVolbaLabel(),
-                getPanelVolby());
+                panelVychody.getVychodLabel(),
+                panelVychody.getSeznamVychodu(),
+                panelVeciVProstoru.getVecLabel(),
+                panelVeciVProstoru,
+                panelBatoh.getBatohLabel(),
+                panelBatoh,
+                panelPostavy.getPostavaLabel(),
+                panelPostavy,
+                panelVolby.getVolbaLabel(),
+                panelVolby);
 
         borderPane.setLeft(panelMapa);
         borderPane.setRight(pravaLista);
@@ -136,51 +124,8 @@ public class Main extends Application {
         zadejPrikazTextArea.requestFocus();
     }
 
-    public TextArea getCentralText() {
-        return centralText;
-    }
-
-    public void appendCentralText(String vstupniPrikaz) {
-        this.getCentralText().appendText("\n" + vstupniPrikaz + "\n");
-    }
-
-    public PanelMapa getPanelMapa() {
-        return panelMapa;
-    }
-
-    /**
-     * @return the panelVychody
-     */
-    public PanelVychody getPanelVychody() {
-        return panelVychody;
-    }
-
-    /**
-     * @return the panelVeciVProstoru
-     */
-    public PanelVeciVProstoru getPanelVeciVProstoru() {
-        return panelVeciVProstoru;
-    }
-
-    /**
-     * @return the panelBatoh
-     */
-    public PanelBatoh getPanelBatoh() {
-        return panelBatoh;
-    }
-
-    /**
-     * @return the panelPostavy
-     */
-    public PanelPostavy getPanelPostavy() {
-        return panelPostavy;
-    }
-
-    /**
-     * @return the panelVolby
-     */
-    public PanelVolby getPanelVolby() {
-        return panelVolby;
+    private void appendCentralText(String vstupniPrikaz) {
+        this.centralText.appendText("\n" + vstupniPrikaz + "\n");
     }
 
     /**
@@ -213,7 +158,7 @@ public class Main extends Application {
     /**
      * @param stage the stage to set
      */
-    public void setStage(Stage stage) {
+    private void setStage(Stage stage) {
         this.stage = stage;
     }
 }
