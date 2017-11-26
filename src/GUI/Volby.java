@@ -44,7 +44,6 @@ public class Volby extends HBox implements Observer {
         getVolbaNazev().setPrefWidth(200);
 
         mapaPostavVProstoru = hra.getHerniPlan().getAktualniProstor().getSeznamPostav();
-        System.out.println(mapaPostavVProstoru);
 
         this.getChildren().clear();
 
@@ -58,7 +57,6 @@ public class Volby extends HBox implements Observer {
 
         for (String postava : mapaPostavVProstoru.keySet()) {
             Postava pomocnaPostava = mapaPostavVProstoru.get(postava);
-            System.out.println(postava);
             if(pomocnaPostava.isVazal() && hra.getHerniPlan().getAktualniProstor().getNazev() != "hrad") {
                 this.getChildren().addAll(tlacitkoVolbyA, tlacitkoVolbyB, tlacitkoVolbyC);
             }
