@@ -4,7 +4,7 @@ import GUI.Mapa;
 import GUI.MenuLista;
 import GUI.Vychody;
 import GUI.VeciVProstoru;
-import GUI.Batoh;
+import GUI.BatohPanel;
 import GUI.Postavy;
 import GUI.Volby;
 import javafx.application.Application;
@@ -40,7 +40,7 @@ public class Main extends Application {
     private MenuLista menuLista;
     private Vychody vychody;
     private VeciVProstoru veciVProstoru;
-    private Batoh batoh;
+    private BatohPanel batohPanel;
     private Postavy postavy;
     private Volby volby;
 
@@ -85,7 +85,7 @@ public class Main extends Application {
                     zadejPrikazTextArea.setEditable(false);
                     vychody.getSeznamVychodu().setDisable(true);
                     veciVProstoru.setDisable(true);
-                    batoh.setDisable(true);
+                    batohPanel.setDisable(true);
                     postavy.setDisable(true);
                     volby.setDisable(true);
                     centralText.appendText(hra.vratEpilog());
@@ -110,7 +110,7 @@ public class Main extends Application {
 
         veciVProstoru = new VeciVProstoru(hra, centralText);
         postavy = new Postavy(hra, centralText);
-        batoh = new Batoh(hra.getHerniPlan(), centralText, hra);
+        batohPanel = new BatohPanel(hra.getHerniPlan(), centralText, hra);
         volby = new Volby(hra, centralText);
 
         FlowPane pravaLista = new FlowPane();
@@ -121,8 +121,8 @@ public class Main extends Application {
                 getVychody().getSeznamVychodu(),
                 getVeciVProstoru().getVecNazev(),
                 getVeciVProstoru(),
-                getBatoh().getBatohNazev(),
-                getBatoh(),
+                getBatohPanel().getBatohLabel(),
+                getBatohPanel(),
                 getPostavy().getPostavaNazev(),
                 getPostavy(),
                 getVolby().getVolbaNazev(),
@@ -169,10 +169,10 @@ public class Main extends Application {
     }
 
     /**
-     * @return the batoh
+     * @return the batohPanel
      */
-    public Batoh getBatoh() {
-        return batoh;
+    public BatohPanel getBatohPanel() {
+        return batohPanel;
     }
 
     /**

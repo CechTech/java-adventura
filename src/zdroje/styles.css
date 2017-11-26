@@ -9,7 +9,7 @@
     -fx-padding: 0 0 0 10px;
 }
 
-.button-zahod {
+.tlacitko-zahod {
     -fx-padding: 0;
     -fx-pref-width: 20px;
     -fx-pref-height: 20px;
@@ -27,7 +27,7 @@
     -fx-border-radius: 3px;
 }
 
-.button-zahod:hover {
+.tlacitko-zahod:hover {
     -fx-background-color: #efefef;
     -fx-text-fill: #8f8f8f;
     -fx-border-color: #8f8f8f;
