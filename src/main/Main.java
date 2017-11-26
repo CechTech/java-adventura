@@ -5,7 +5,7 @@ import GUI.MenuLista;
 import GUI.Vychody;
 import GUI.VeciVProstoru;
 import GUI.BatohPanel;
-import GUI.Postavy;
+import GUI.PostavyPanel;
 import GUI.Volby;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -41,7 +41,7 @@ public class Main extends Application {
     private Vychody vychody;
     private VeciVProstoru veciVProstoru;
     private BatohPanel batohPanel;
-    private Postavy postavy;
+    private PostavyPanel postavyPanel;
     private Volby volby;
 
     private Stage stage;
@@ -86,7 +86,7 @@ public class Main extends Application {
                     vychody.getSeznamVychodu().setDisable(true);
                     veciVProstoru.setDisable(true);
                     batohPanel.setDisable(true);
-                    postavy.setDisable(true);
+                    postavyPanel.setDisable(true);
                     volby.setDisable(true);
                     centralText.appendText(hra.vratEpilog());
                 }
@@ -109,7 +109,7 @@ public class Main extends Application {
         dolniLista.getChildren().addAll(zadejPrikazLabel, zadejPrikazTextArea);
 
         veciVProstoru = new VeciVProstoru(hra, centralText);
-        postavy = new Postavy(hra, centralText);
+        postavyPanel = new PostavyPanel(hra, centralText);
         batohPanel = new BatohPanel(hra.getHerniPlan(), centralText, hra);
         volby = new Volby(hra, centralText);
 
@@ -123,8 +123,8 @@ public class Main extends Application {
                 getVeciVProstoru(),
                 getBatohPanel().getBatohLabel(),
                 getBatohPanel(),
-                getPostavy().getPostavaNazev(),
-                getPostavy(),
+                getPostavyPanel().getPostavaLabel(),
+                getPostavyPanel(),
                 getVolby().getVolbaNazev(),
                 getVolby());
 
@@ -176,10 +176,10 @@ public class Main extends Application {
     }
 
     /**
-     * @return the postavy
+     * @return the postavyPanel
      */
-    public Postavy getPostavy() {
-        return postavy;
+    public PostavyPanel getPostavyPanel() {
+        return postavyPanel;
     }
 
     /**

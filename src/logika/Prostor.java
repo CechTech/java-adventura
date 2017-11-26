@@ -125,7 +125,7 @@ public class Prostor {
      * Vrací "dlouhý" popis prostoru, který může vypadat následovně: Jsi v
      * mistnosti/prostoru vstupni hala budovy VSE na Jiznim meste. 
      * Východy: chodba bufet ucebna
-     * Postavy: kapitanMorgan
+     * PostavyPanel: kapitanMorgan
      * Věci: koruna, mapa
      *
      * @return Dlouhý popis prostoru
@@ -167,12 +167,12 @@ public class Prostor {
     
     /**
      * Vrací textový řetězec, který vypisuje postavy v prostoru, například:
-     * "Postavy: kapitanMorgan".
+     * "PostavyPanel: kapitanMorgan".
      *
      * @return Seznam věcí
      */
     private String popisPostav() {
-        String vracenyText = "Postavy:";
+        String vracenyText = "PostavyPanel:";
         for (String nazev : seznamPostav.keySet()) {
             vracenyText += " " + nazev;
         }       
