@@ -14,17 +14,17 @@ import utils.Observer;
 /**
  * @author cecj02
  */
-public class Vychody extends ListView implements Observer {
+public class PanelVychody extends ListView implements Observer {
     private IHra hra;
     private ListView<String> seznamVychodu;
     private ObservableList<String> vychody;
-    private Label vychodNazev;
+    private Label vychodLabel;
 
     /**
      * Konstruktor východů
      * @param hra -
      */
-    public Vychody(IHra hra) {
+    public PanelVychody(IHra hra) {
         this.hra = hra;
         hra.getHerniPlan().registerObserver(this);
         init();
@@ -32,14 +32,15 @@ public class Vychody extends ListView implements Observer {
 
     private void init() {
         Collection<Prostor> sousedniVychody = hra.getHerniPlan().getAktualniProstor().getVychody();
-        seznamVychodu = new ListView<>();
         vychody = FXCollections.observableArrayList();
-        getSeznamVychodu().setItems(vychody);
-        getSeznamVychodu().setPrefWidth(200);
-        getSeznamVychodu().setMaxHeight(120);
-        vychodNazev = new Label("Východy:");
-        getVychodNazev().setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        getVychodNazev().setPrefWidth(200);
+        seznamVychodu = new ListView<>();
+        vychodLabel = new Label("Východy:");
+
+        seznamVychodu.setItems(vychody);
+        seznamVychodu.setPrefWidth(200);
+        seznamVychodu.setMaxHeight(120);
+        vychodLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        vychodLabel.setPrefWidth(200);
 
         for (Prostor prostor : sousedniVychody) {
             vychody.add(prostor.getNazev());
@@ -56,16 +57,16 @@ public class Vychody extends ListView implements Observer {
     }
 
     /**
-     * @return seznamVychodu
+     * @return the seznamVychodu
      */
     public ListView<String> getSeznamVychodu() {
         return seznamVychodu;
     }
 
     /**
-     * @return vychodNazev
+     * @return the vychodLabel
      */
-    public Label getVychodNazev() {
-        return vychodNazev;
+    public Label getVychodLabel() {
+        return vychodLabel;
     }
 }

@@ -32,7 +32,7 @@ public class Main extends Application {
 
     private PanelMapa panelMapa;
     private MenuLista menuLista;
-    private Vychody vychody;
+    private PanelVychody panelVychody;
     private PanelVeciVProstoru panelVeciVProstoru;
     private PanelBatoh panelBatoh;
     private PanelPostavy panelPostavy;
@@ -47,7 +47,7 @@ public class Main extends Application {
         hra = new Hra();
         panelMapa = new PanelMapa(hra);
         menuLista = new MenuLista(this, stage);
-        vychody = new Vychody(hra);
+        panelVychody = new PanelVychody(hra);
 
         BorderPane borderPane = new BorderPane();
 
@@ -77,7 +77,7 @@ public class Main extends Application {
 
                 if (hra.konecHry()) {
                     zadejPrikazTextArea.setEditable(false);
-                    vychody.getSeznamVychodu().setDisable(true);
+                    panelVychody.getSeznamVychodu().setDisable(true);
                     panelVeciVProstoru.setDisable(true);
                     panelBatoh.setDisable(true);
                     panelPostavy.setDisable(true);
@@ -87,10 +87,10 @@ public class Main extends Application {
             }
         });
 
-        getVychody().getSeznamVychodu().setOnMouseClicked(new EventHandler<MouseEvent>() {
+        getPanelVychody().getSeznamVychodu().setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                String nazevVychodu = getVychody().getSeznamVychodu().getSelectionModel().getSelectedItem();
+                String nazevVychodu = getPanelVychody().getSeznamVychodu().getSelectionModel().getSelectedItem();
                 String vstupniPrikaz = "jdi " + nazevVychodu;
                 String odpovedHry = hra.zpracujPrikaz(vstupniPrikaz);
                 appendCentralText(odpovedHry);
@@ -111,8 +111,8 @@ public class Main extends Application {
         pravaLista.setAlignment(Pos.TOP_CENTER);
         pravaLista.setPrefWidth(200);
         pravaLista.getChildren().addAll(
-                getVychody().getVychodNazev(),
-                getVychody().getSeznamVychodu(),
+                getPanelVychody().getVychodLabel(),
+                getPanelVychody().getSeznamVychodu(),
                 getPanelVeciVProstoru().getVecLabel(),
                 getPanelVeciVProstoru(),
                 getPanelBatoh().getBatohLabel(),
@@ -149,10 +149,10 @@ public class Main extends Application {
     }
 
     /**
-     * @return the vychody
+     * @return the panelVychody
      */
-    public Vychody getVychody() {
-        return vychody;
+    public PanelVychody getPanelVychody() {
+        return panelVychody;
     }
 
     /**
