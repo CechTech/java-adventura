@@ -36,7 +36,7 @@ public class Main extends Application {
     private PanelVeciVProstoru panelVeciVProstoru;
     private PanelBatoh panelBatoh;
     private PanelPostavy panelPostavy;
-    private Volby volby;
+    private PanelVolby panelVolby;
 
     private Stage stage;
 
@@ -81,7 +81,7 @@ public class Main extends Application {
                     panelVeciVProstoru.setDisable(true);
                     panelBatoh.setDisable(true);
                     panelPostavy.setDisable(true);
-                    volby.setDisable(true);
+                    panelVolby.setDisable(true);
                     centralText.appendText(hra.vratEpilog());
                 }
             }
@@ -105,7 +105,7 @@ public class Main extends Application {
         panelVeciVProstoru = new PanelVeciVProstoru(hra, centralText);
         panelPostavy = new PanelPostavy(hra, centralText);
         panelBatoh = new PanelBatoh(hra.getHerniPlan(), centralText, hra);
-        volby = new Volby(hra, centralText);
+        panelVolby = new PanelVolby(hra, centralText);
 
         FlowPane pravaLista = new FlowPane();
         pravaLista.setAlignment(Pos.TOP_CENTER);
@@ -119,8 +119,8 @@ public class Main extends Application {
                 getPanelBatoh(),
                 getPanelPostavy().getPostavaLabel(),
                 getPanelPostavy(),
-                getVolby().getVolbaNazev(),
-                getVolby());
+                getPanelVolby().getVolbaLabel(),
+                getPanelVolby());
 
         borderPane.setLeft(panelMapa);
         borderPane.setRight(pravaLista);
@@ -177,10 +177,10 @@ public class Main extends Application {
     }
 
     /**
-     * @return the volby
+     * @return the panelVolby
      */
-    public Volby getVolby() {
-        return volby;
+    public PanelVolby getPanelVolby() {
+        return panelVolby;
     }
 
     /**
