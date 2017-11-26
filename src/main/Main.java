@@ -52,7 +52,7 @@ public class Main extends Application {
 
         hra = new Hra();
         mapa = new Mapa(hra);
-        menuLista = new MenuLista(hra, this, stage);
+        menuLista = new MenuLista(this, stage);
         vychody = new Vychody(hra);
 
         BorderPane borderPane = new BorderPane();
