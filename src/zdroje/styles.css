@@ -48,4 +48,5 @@
 .list-view {
     -fx-pref-width: 180px;
     -fx-pref-height: 80px;
+    -fx-focus-traversable: false;
 }
