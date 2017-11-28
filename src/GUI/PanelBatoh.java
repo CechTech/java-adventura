@@ -128,7 +128,7 @@ public class PanelBatoh extends VBox implements Observer {
     }
 
     /**
-     * @return the batohLabel
+     * @return batohLabel
      */
     public Label getBatohLabel() {
         return batohLabel;

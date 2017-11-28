@@ -41,7 +41,7 @@ public class PanelPostavy extends VBox implements Observer {
     }
 
     /**
-     * Vytváří panelPostavy sse seznamem postav v autkálním prostoru
+     * Vytváří panelPostavy se seznamem postav v aktuálním prostoru
      * S postavami lze mluvit
      */
     private void init() {
@@ -67,8 +67,8 @@ public class PanelPostavy extends VBox implements Observer {
     }
 
     /**
-     * Vytvoří tlačítka ro postavy v aktuálním prostoru
-     * @param mapaPostavVProstoru - postavy v aktuálním prostory
+     * Vytvoří tlačítka pro postavy v aktuálním prostoru
+     * @param mapaPostavVProstoru - postavy v aktuálním prostoru
      */
     private void vytvorTlacitkaProPostavy(HashMap<String, Postava> mapaPostavVProstoru) {
         for (String postava : mapaPostavVProstoru.keySet()) {
@@ -85,7 +85,7 @@ public class PanelPostavy extends VBox implements Observer {
 
     /**
      * Nastaví tlačítko pro postavu
-     * @param pomocnaPostava - Nastaví tlačítko pro postavu
+     * @param pomocnaPostava -
      */
     private void nastavTlacitkoPostavy(Postava pomocnaPostava) {
         tlacitkoPostavy.setOnMouseClicked(click -> {
@@ -100,7 +100,7 @@ public class PanelPostavy extends VBox implements Observer {
     }
 
     /**
-     * @return the postavaLabel
+     * @return postavaLabel
      */
     public Label getPostavaLabel() {
         return postavaLabel;
