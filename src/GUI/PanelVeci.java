@@ -15,13 +15,13 @@ import main.Main;
 import utils.Observer;
 
 /**
- * Třída PanelVeciVProstoru - vytváří UI věcí v prostoru
+ * Třída PanelVeci - vytváří UI věcí v prostoru
  * Tato třída je součástí jednoduché textové hry.
  *
  * @author Jiří Čech
  * @version 28.11.2017
  */
-public class PanelVeciVProstoru extends VBox implements Observer {
+public class PanelVeci extends VBox implements Observer {
     private IHra hra;
     private Map<String, Vec> mapaVeciVProstoru;
     private Button tlacitkoVeci;
@@ -33,7 +33,7 @@ public class PanelVeciVProstoru extends VBox implements Observer {
      * @param hra -
      * @param text -
      */
-    public PanelVeciVProstoru(IHra hra, TextArea text) {
+    public PanelVeci(IHra hra, TextArea text) {
         this.hra = hra;
         hra.getHerniPlan().registerObserver(this);
         this.centralText = text;
@@ -58,7 +58,7 @@ public class PanelVeciVProstoru extends VBox implements Observer {
     }
 
     /**
-     * Aktualizuje PanelVeciVProstoru
+     * Aktualizuje PanelVeci
      */
     @Override
     public void update() {
