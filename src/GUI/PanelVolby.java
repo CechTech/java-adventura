@@ -13,7 +13,11 @@ import java.util.HashMap;
 import java.util.Objects;
 
 /**
+ * Třída PanelVolby - vytváří UI volitelných odpovědí
+ * Tato třída je součástí jednoduché textové hry.
+ *
  * @author Jiří Čech
+ * @version 28.11.2017
  */
 public class PanelVolby extends HBox implements Observer {
     private IHra hra;
@@ -25,7 +29,7 @@ public class PanelVolby extends HBox implements Observer {
     private TextArea centralText;
 
     /**
-     * Konstruktor postav v prostoru
+     * Konstruktor volitelných odpovědí
      * @param hra -
      * @param text -
      */
@@ -36,6 +40,9 @@ public class PanelVolby extends HBox implements Observer {
         init();
     }
 
+    /**
+     * Vytváří panelVolby se seznamem volitelných odpovědí
+     */
     private void init() {
         volbaLabel = new Label("Možné volby:");
         volbaLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -69,6 +76,9 @@ public class PanelVolby extends HBox implements Observer {
         update();
     }
 
+    /**
+     * Aktualizuje PanelVolby
+     */
     @Override
     public void update() {
         mapaPostavVProstoru = hra.getHerniPlan().getAktualniProstor().getSeznamPostav();
@@ -97,6 +107,10 @@ public class PanelVolby extends HBox implements Observer {
         nastavTlacitkoVolby(tlacitkoVolbyC);
     }
 
+    /**
+     * Nastaví tlačítko pro volbu
+     * @param tlacitkoVolby -
+     */
     private void nastavTlacitkoVolby(Button tlacitkoVolby) {
         tlacitkoVolby.setOnMouseClicked(click -> {
             String vstupniPrikaz = "volim " + tlacitkoVolby.getText();
@@ -110,7 +124,7 @@ public class PanelVolby extends HBox implements Observer {
     }
 
     /**
-     * @return the volbaLabel
+     * @return volbaLabel
      */
     public Label getVolbaLabel() {
         return volbaLabel;

@@ -34,6 +34,10 @@ public class Batoh {
         }
     }
 
+    /**
+     * @param vec -
+     * @return je věc vložena
+     */
     public boolean vlozVec(Vec vec) {
         if (jeMistoVBatohu() && vec.isPrenositelna()) {
             getSeznamVeci().put(vec.getNazev(), vec);
@@ -45,7 +49,8 @@ public class Batoh {
 
     /**
      * Vyhledá věc v batohu
-     * 
+     *
+     * @param jmenoVeci -
      * @return true když ji najde
      */
     public boolean obsahujeVecVBatohu (String jmenoVeci) {
@@ -53,7 +58,7 @@ public class Batoh {
     }
 
     /**
-     * Vypíše věci, které jsou v batohu
+     * @return věci, které jsou v batohu
      */
     public String nazvyVeciVBatohu() {
         String nazvy = "Věci v batohu: ";
@@ -64,9 +69,12 @@ public class Batoh {
     }
 
     /**
-    * Odebere věc z batohu
-    */
-    public Vec vyhodZBatohu(String nazev) {        
+     * Odebere věc z batohu
+     *
+     * @param nazev - název věci k vyhození
+     * @return Vec
+     */
+    public Vec vyhodZBatohu(String nazev) {
         Vec vyhozenaVec = null;
         if (getSeznamVeci().containsKey(nazev)) {
             vyhozenaVec = getSeznamVeci().get(nazev);
@@ -76,7 +84,7 @@ public class Batoh {
     }
 
     /**
-     * @return the seznamVeci
+     * @return seznamVeci
      */
     public Map<String, Vec> getSeznamVeci() {
         return seznamVeci;

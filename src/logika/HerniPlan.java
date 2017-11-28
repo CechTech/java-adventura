@@ -19,23 +19,22 @@ public class HerniPlan implements Subject {
     // Postavy a prostory jsou využíváný i v jiných třídách
     // Musí být veřejné
 
-    private Prostor viteznyProstor;
-    private List<Observer> listObserveru = new ArrayList<Observer>();
+    private List<Observer> listObserveru = new ArrayList<>();
+    private Prostor aktualniProstor;
 
-    public Prostor aktualniProstor;
-    public Prostor ledoveOstrovy;
-    public Prostor mlzneHory;
-    public Prostor hrad;
-    public Prostor pristavPiratu;
-    public Prostor ovocneSady;
-    public Prostor kouzelnyLes;
-    public Prostor poustZapomneni;
-    public Postava jelenJagermeister;
-    public Postava rudolfJelinek;
-    public Postava kapitanMorgan;
-    public Postava roaldAmundsen;
-    public Postava strazceBeefeater;
-    public Postava joseCuervo;
+    Prostor ledoveOstrovy;
+    Prostor mlzneHory;
+    Prostor hrad;
+    Prostor pristavPiratu;
+    Prostor ovocneSady;
+    Prostor kouzelnyLes;
+    Prostor poustZapomneni;
+    Postava jelenJagermeister;
+    Postava rudolfJelinek;
+    Postava kapitanMorgan;
+    Postava roaldAmundsen;
+    Postava strazceBeefeater;
+    Postava joseCuervo;
 
     Batoh batoh;
 
@@ -83,14 +82,14 @@ public class HerniPlan implements Subject {
         aktualniProstor = hrad;  // hra začíná ve hradě
 
         // Vytvoříme věci
-        Vec penize = new Vec("penize", "Peněz není nikdy dost", true, false, "/zdroje/penize.png");
-        Vec piratskaMince = new Vec("piratskaMince", "Pro tuhle jsou piráti ochotni riskovat život", true, true, "/zdroje/piratska_mince.png");
-        Vec kouzelnyRoh = new Vec("kouzelnyRoh", "Přivolá kouzelného jelena", true, true, "/zdroje/lesni_roh.png");
-        Vec horolezeckeVybaveni = new Vec("horolezeckeVybaveni", "Bez něj se do hor nedá dostat", true, true, "/zdroje/lano.png");
-        Vec prazdnaLahev = new Vec("prazdnaLahev", "Láhev od pálenky se špuntem", true, false, "/zdroje/prazdna_lahev.png");
-        Vec svestky = new Vec("svestky", "Švestky k jídlu, nebo na slivovici", false, false, "/zdroje/svestky.png");
-        Vec sudyRumu = new Vec("sudyRumu", "Obří zásoby pirátského nápoje", false, false, "/zdroje/sud.png");
-        Vec kaktusy = new Vec("kaktusy", "Všude jsou samé kaktusy", false, false, "/zdroje/kaktus.png");
+        Vec penize = new Vec("penize", true, false, "/zdroje/penize.png");
+        Vec piratskaMince = new Vec("piratskaMince", true, true, "/zdroje/piratska_mince.png");
+        Vec kouzelnyRoh = new Vec("kouzelnyRoh", true, true, "/zdroje/lesni_roh.png");
+        Vec horolezeckeVybaveni = new Vec("horolezeckeVybaveni", true, true, "/zdroje/lano.png");
+        Vec prazdnaLahev = new Vec("prazdnaLahev", true, false, "/zdroje/prazdna_lahev.png");
+        Vec svestky = new Vec("svestky", false, false, "/zdroje/svestky.png");
+        Vec sudyRumu = new Vec("sudyRumu", false, false, "/zdroje/sud.png");
+        Vec kaktusy = new Vec("kaktusy", false, false, "/zdroje/kaktus.png");
 
         // Vložíme věci do prostorů
         hrad.vlozVec(penize);
@@ -103,7 +102,7 @@ public class HerniPlan implements Subject {
         ledoveOstrovy.vlozVec(kouzelnyRoh);
         ledoveOstrovy.vlozVec(horolezeckeVybaveni);
 
-        // Vytvorime nové postavy
+        // Vytvořime nové postavy
         jelenJagermeister = new Postava ("jelenJagermeister", "Jelen Jägermeister: Proč mě voláš princi Pivoni? \n"
                 + "Pivoň: Pane lesů, můj otec král Abrelour zemřel a já mám nastoupit na jeho místo. \n"
                 + "Pivoň: Žádám tě proto, aby jsi se dostavil na korunovaci a odpřísáhl mi věrnost. \n"
@@ -201,29 +200,39 @@ public class HerniPlan implements Subject {
      *
      *@param  prostor nový aktuální prostor
      */
-    public void setAktualniProstor(Prostor prostor) {
+    void setAktualniProstor(Prostor prostor) {
         aktualniProstor = prostor;
         notifyObservers();
     }
 
+    /**
+     * @return batoh
+     */
     public Batoh getBatoh() {
         return batoh;
     }
 
-    public Prostor getViteznyProstor() {
-        return viteznyProstor;
-    }
-
+    /**
+     * Metoda registruje observer
+     * @param observer -
+     */
     @Override
     public void registerObserver(Observer observer) {
         listObserveru.add(observer);
     }
 
+    /**
+     * Metoda odstraňuje observer
+     * @param observer -
+     */
     @Override
     public void removeObserver(Observer observer) {
         listObserveru.remove(observer);
     }
 
+    /**
+     * Metoda upozorňuje observery
+     */
     @Override
     public void notifyObservers() {
         for (Observer listObserveruItem : listObserveru) {

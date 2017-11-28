@@ -216,6 +216,8 @@ public class Prostor {
     
     /**
      * Vloží věc v prostoru
+     *
+     * @param vec -
      */
     public void vlozVec(Vec vec) {
         seznamVeci.put(vec.getNazev(), vec);
@@ -223,6 +225,9 @@ public class Prostor {
     
     /**
      * Odebere věc v prostoru
+     *
+     * @param nazev -
+     * @return Vec
      */
     public Vec odeberVec(String nazev) {
         return seznamVeci.remove(nazev);
@@ -230,6 +235,8 @@ public class Prostor {
     
     /**
      * Vloží postavu v prostoru
+     *
+     * @param postava -
      */
     public void vlozPostavu(Postava postava) {
         seznamPostav.put(postava.getJmeno(), postava);
@@ -237,6 +244,9 @@ public class Prostor {
     
     /**
      * Odebere postavu v prostoru
+     *
+     * @param jmeno -
+     * @return Postava
      */
     public Postava odeberPostavu(String jmeno) {
         return seznamPostav.remove(jmeno);
@@ -244,6 +254,9 @@ public class Prostor {
     
     /**
      * Najde postavu v prostoru
+     *
+     * @param jmeno -
+     * @return Postava
      */
     public Postava najdiPostavu(String jmeno) {
         return seznamPostav.get(jmeno);
@@ -251,6 +264,8 @@ public class Prostor {
     
     /**
      * Zjistí, jestli je prostor zamčený
+     *
+     * @return zamceno
      */
     public boolean isZamceno() {     
         return zamceno;
@@ -258,28 +273,36 @@ public class Prostor {
         
     /**
      * Při true zamče prostor, při false odemče
+     *
+     * @param zamceno -
      */
     public void setZamek(boolean zamceno){
         this.zamceno = zamceno;
     }
 
+    /**
+     * @return pozice x
+     */
     public double getPosX() {
         return posX;
     }
 
+    /**
+     * @return pozice y
+     */
     public double getPosY() {
         return posY;
     }
 
     /**
-     * @return the seznamVeci
+     * @return seznamVeci
      */
     public Map<String, Vec> getSeznamVeci() {
         return seznamVeci;
     }
 
     /**
-     * @return the seznamPostav
+     * @return seznamPostav
      */
     public HashMap<String, Postava> getSeznamPostav() {
         return seznamPostav;

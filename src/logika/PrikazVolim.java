@@ -18,6 +18,9 @@ public class PrikazVolim implements IPrikaz
 
     /***************************************************************************
      *  Konstruktor třídy
+     *
+     *  @param plan -
+     *  @param hra -
      */
     public PrikazVolim(HerniPlan plan, Hra hra)
     {
@@ -205,7 +208,7 @@ public class PrikazVolim implements IPrikaz
     /**
      *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
      *  
-     *  @ return nazev prikazu
+     *  @return nazev prikazu
      */
     @Override
     public String getNazev() {

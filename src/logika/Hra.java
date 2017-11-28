@@ -38,7 +38,7 @@ public class Hra implements IHra {
     }
 
     /**
-     *  Vrátí úvodní zprávu pro hráče.
+     *  @return úvodní zprávu pro hráče
      */
     public String vratUvitani() {
         return "Vítej! \n" +
@@ -49,14 +49,14 @@ public class Hra implements IHra {
     }
 
     /**
-     *  Vrátí závěrečnou zprávu pro hráče.
+     *  @return závěrečnou zprávu pro hráče
      */
     public String vratEpilog() {
         return "Dík za hru. Čau.";
     }
 
     /**
-     * Vrací true, pokud hra skončila.
+     * @return true, pokud hra skončila
      */
     public boolean konecHry() {
         return konecHry;

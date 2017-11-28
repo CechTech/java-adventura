@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
 import javafx.scene.Scene;
@@ -16,18 +11,30 @@ import javafx.stage.Stage;
 import main.Main;
 
 /**
+ * Třída MenuLista - vytváří UI menu s nabídkou možností hry
+ * Tato třída je součástí jednoduché textové hry.
+ *
  * @author xzenj02
+ * @version 28.11.2017
  */
 public class MenuLista extends MenuBar {
     private Main main;
     private Stage stage;
 
+    /**
+     * Konstruktor menu
+     * @param main -
+     * @param stage -
+     */
     public MenuLista(Main main, Stage stage){
         this.main = main;
         this.stage = stage;
         init();
     }
 
+    /**
+     * Vytváří menuLista s nabídkou možností hry
+     */
     private void init(){
         Menu novySoubor = new Menu("Adventura");
         Menu napoveda = new Menu("Help");
@@ -49,9 +56,11 @@ public class MenuLista extends MenuBar {
 
         this.getMenus().addAll(novySoubor, napoveda);
 
+        // nastavuje položku konec hry
         konecHry.setOnAction(event -> System.exit(0));
         novaHra.setOnAction(event -> main.start(stage));
 
+        // nastavuje položku informace o programu
         oProgramu.setOnAction(event -> {
             Alert oProgramuAlert = new Alert(Alert.AlertType.INFORMATION);
 
@@ -63,6 +72,7 @@ public class MenuLista extends MenuBar {
             oProgramuAlert.showAndWait();
         });
 
+        // nastavuje položku nápověda
         napovedaItem.setOnAction(event -> {
             Stage stage = new Stage();
             stage.setTitle("Napoveda");

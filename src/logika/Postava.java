@@ -26,26 +26,29 @@ public class Postava
     }
 
     /**
-     * Vrací jméno postavy.
+     * @return jméno postavy
      */
     public String getJmeno() {
         return jmeno; 
     }
     
     /**
-     * Vrací dialog s postavou.
+     * @return dialog s postavou
      */
     public String getRec() {
         return rec; 
     }
 
     /**
-     * Vrací obrázek postavy.
+     * @return obrázek postavy
      */
     public String getObrazek() {
         return obrazek;
     }
 
+    /**
+     * @return jestli je vazal
+     */
     public boolean isVazal() {
         return vazal;
     }

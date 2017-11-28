@@ -15,7 +15,11 @@ import main.Main;
 import utils.Observer;
 
 /**
+ * Třída PanelVeciVProstoru - vytváří UI věcí v prostoru
+ * Tato třída je součástí jednoduché textové hry.
+ *
  * @author Jiří Čech
+ * @version 28.11.2017
  */
 public class PanelVeciVProstoru extends VBox implements Observer {
     private IHra hra;
@@ -36,6 +40,10 @@ public class PanelVeciVProstoru extends VBox implements Observer {
         init();
     }
 
+    /**
+     * Vytváří panelVeciVProstoru se seznamem věcí v aktuálním prostoru
+     * Věci jde sebrat
+     */
     private void init() {
         vecLabel = new Label("Věci v prostoru:");
         vecLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -49,6 +57,9 @@ public class PanelVeciVProstoru extends VBox implements Observer {
         update();
     }
 
+    /**
+     * Aktualizuje PanelVeciVProstoru
+     */
     @Override
     public void update() {
         this.getChildren().clear();
@@ -57,6 +68,10 @@ public class PanelVeciVProstoru extends VBox implements Observer {
         vytvorTlacitkaProVeci(mapaVeciVProstoru);
     }
 
+    /**
+     * Vytvoří tlačítka pro věci v aktuálním prostoru
+     * @param mapaVeciVProstoru - věci v aktuálním prostoru
+     */
     private void vytvorTlacitkaProVeci(Map<String, Vec> mapaVeciVProstoru) {
         for (String vec : mapaVeciVProstoru.keySet()) {
             Vec pomocnaVec = mapaVeciVProstoru.get(vec);
@@ -70,6 +85,10 @@ public class PanelVeciVProstoru extends VBox implements Observer {
         }
     }
 
+    /**
+     * Nastaví tlačítko pro věc
+     * @param pomocnaVec -
+     */
     private void nastavTlacitkoVeci(Vec pomocnaVec) {
         tlacitkoVeci.setOnMouseClicked(click -> {
             String vstupniPrikaz = "vezmi " + pomocnaVec.getNazev();
@@ -83,7 +102,7 @@ public class PanelVeciVProstoru extends VBox implements Observer {
     }
 
     /**
-     * @return the vecLabel
+     * @return vecLabel
      */
     public Label getVecLabel() {
         return vecLabel;

@@ -12,7 +12,11 @@ import logika.Prostor;
 import utils.Observer;
 
 /**
- * @author cecj02
+ * Třída PanelVychody - vytváří UI aktuálních východů
+ * Tato třída je součástí jednoduché textové hry.
+ *
+ * @author Jiří Čech
+ * @version 28.11.2017
  */
 public class PanelVychody extends ListView implements Observer {
     private IHra hra;
@@ -30,6 +34,10 @@ public class PanelVychody extends ListView implements Observer {
         init();
     }
 
+    /**
+     * Vytváří panelVychody se seznamem aktuálních východů
+     * Prostory lze procházet
+     */
     private void init() {
         Collection<Prostor> sousedniVychody = hra.getHerniPlan().getAktualniProstor().getVychody();
         vychody = FXCollections.observableArrayList();
@@ -48,6 +56,9 @@ public class PanelVychody extends ListView implements Observer {
         update();
     }
 
+    /**
+     * Aktualizuje PanelVychody
+     */
     @Override
     public void update() {
         Collection<Prostor> sousedniProstory = hra.getHerniPlan().getAktualniProstor().getVychody();
@@ -57,14 +68,14 @@ public class PanelVychody extends ListView implements Observer {
     }
 
     /**
-     * @return the seznamVychodu
+     * @return seznamVychodu
      */
     public ListView<String> getSeznamVychodu() {
         return seznamVychodu;
     }
 
     /**
-     * @return the vychodLabel
+     * @return vychodLabel
      */
     public Label getVychodLabel() {
         return vychodLabel;
