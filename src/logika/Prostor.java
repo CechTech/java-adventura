@@ -24,11 +24,10 @@ import java.util.stream.Collectors;
 public class Prostor {
     private String nazev;
     private String popis;
-    private Hra hra;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
     private Map<String, Vec> seznamVeci;
-    public HashMap<String, Postava> seznamPostav; //obsahuje seznam postav
-    public boolean zamceno = false;
+    private HashMap<String, Postava> seznamPostav; //obsahuje seznam postav
+    boolean zamceno = false;
 
     private double posX;
     private double posY;
@@ -41,7 +40,7 @@ public class Prostor {
      * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis, double posX, double posY) {
+    Prostor(String nazev, String popis, double posX, double posY) {
         this.nazev = nazev;
         this.popis = popis;
         this.posX = posX;
@@ -61,7 +60,7 @@ public class Prostor {
      * @param vedlejsi prostor, který sousedi s aktualnim prostorem.
      *
      */
-    public void setVychod(Prostor vedlejsi) {
+    void setVychod(Prostor vedlejsi) {
         vychody.add(vedlejsi);
     }
 
@@ -74,8 +73,8 @@ public class Prostor {
      *
      * @param o object, který se má porovnávat s aktuálním
      * @return hodnotu true, pokud má zadaný prostor stejný název, jinak false
-     */  
-      @Override
+     */
+    @Override
     public boolean equals(Object o) {
         // porovnáváme zda se nejedná o dva odkazy na stejnou instanci
         if (this == o) {
@@ -92,7 +91,7 @@ public class Prostor {
         //Vrátí true pro stejné názvy a i v případě, že jsou oba názvy null,
         //jinak vrátí false.
 
-       return (java.util.Objects.equals(this.nazev, druhy.nazev));       
+        return (java.util.Objects.equals(this.nazev, druhy.nazev));
     }
 
     /**
@@ -109,7 +108,7 @@ public class Prostor {
         vysledek = 37 * vysledek + hashNazvu;
         return vysledek;
     }
-      
+
 
     /**
      * Vrací název prostoru (byl zadán při vytváření prostoru jako parametr
@@ -118,7 +117,7 @@ public class Prostor {
      * @return název prostoru
      */
     public String getNazev() {
-        return nazev;       
+        return nazev;
     }
 
     /**
@@ -130,7 +129,7 @@ public class Prostor {
      *
      * @return Dlouhý popis prostoru
      */
-    public String dlouhyPopis() {
+    String dlouhyPopis() {
         return "Jsi v mistnosti/prostoru " + popis + ".\n"
                 + popisVychodu() + "\n"
                 + popisPostav() + "\n"
@@ -150,7 +149,7 @@ public class Prostor {
         }
         return vracenyText;
     }
-    
+
     /**
      * Vrací textový řetězec, který vypisuje předměty v prostoru, například:
      * "Věci: mapa, koruna".
@@ -161,10 +160,10 @@ public class Prostor {
         String vracenyText = "Věci:";
         for (String nazev : seznamVeci.keySet()) {
             vracenyText += " " + nazev;
-        }       
+        }
         return vracenyText;
     }
-    
+
     /**
      * Vrací textový řetězec, který vypisuje postavy v prostoru, například:
      * "Postavy: kapitanMorgan".
@@ -175,7 +174,7 @@ public class Prostor {
         String vracenyText = "Postavy:";
         for (String nazev : seznamPostav.keySet()) {
             vracenyText += " " + nazev;
-        }       
+        }
         return vracenyText;
     }
 
@@ -189,10 +188,10 @@ public class Prostor {
      * null, pokud prostor zadaného jména není sousedem.
      */
     public Prostor vratSousedniProstor(String nazevSouseda) {
-        List<Prostor>hledaneProstory = 
-            vychody.stream()
-                   .filter(sousedni -> sousedni.getNazev().equals(nazevSouseda))
-                   .collect(Collectors.toList());
+        List<Prostor>hledaneProstory =
+                vychody.stream()
+                        .filter(sousedni -> sousedni.getNazev().equals(nazevSouseda))
+                        .collect(Collectors.toList());
         if(hledaneProstory.isEmpty()){
             return null;
         }
@@ -213,70 +212,70 @@ public class Prostor {
     public Collection<Prostor> getVychody() {
         return Collections.unmodifiableCollection(vychody);
     }
-    
+
     /**
      * Vloží věc v prostoru
      *
      * @param vec -
      */
-    public void vlozVec(Vec vec) {
+    void vlozVec(Vec vec) {
         seznamVeci.put(vec.getNazev(), vec);
     }
-    
+
     /**
      * Odebere věc v prostoru
      *
      * @param nazev -
      * @return Vec
      */
-    public Vec odeberVec(String nazev) {
+    Vec odeberVec(String nazev) {
         return seznamVeci.remove(nazev);
     }
-    
+
     /**
      * Vloží postavu v prostoru
      *
      * @param postava -
      */
-    public void vlozPostavu(Postava postava) {
+    void vlozPostavu(Postava postava) {
         seznamPostav.put(postava.getJmeno(), postava);
     }
-    
+
     /**
      * Odebere postavu v prostoru
      *
      * @param jmeno -
      * @return Postava
      */
-    public Postava odeberPostavu(String jmeno) {
+    Postava odeberPostavu(String jmeno) {
         return seznamPostav.remove(jmeno);
     }
-    
+
     /**
      * Najde postavu v prostoru
      *
      * @param jmeno -
      * @return Postava
      */
-    public Postava najdiPostavu(String jmeno) {
+    Postava najdiPostavu(String jmeno) {
         return seznamPostav.get(jmeno);
     }
-    
+
     /**
      * Zjistí, jestli je prostor zamčený
      *
      * @return zamceno
      */
-    public boolean isZamceno() {     
+    boolean isZamceno() {
         return zamceno;
     }
-        
+
     /**
      * Při true zamče prostor, při false odemče
      *
      * @param zamceno -
      */
-    public void setZamek(boolean zamceno){
+    void setZamek(boolean zamceno){
         this.zamceno = zamceno;
     }
 
