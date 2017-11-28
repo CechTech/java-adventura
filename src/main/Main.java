@@ -43,16 +43,21 @@ public class Main extends Application {
         PanelMapa panelMapa = new PanelMapa(hra);
         MenuLista menuLista = new MenuLista(this, stage);
         panelVychody = new PanelVychody(hra);
-
         BorderPane borderPane = new BorderPane();
 
-        // Text s prubehem hry
+        // text s prubehem hry
         centralText = new TextArea();
         centralText.setText(hra.vratUvitani());
         centralText.setEditable(false);
         borderPane.setCenter(centralText);
 
-        //label s textem zadej prikaz
+        // vytvoření panelů
+        panelVeciVProstoru = new PanelVeciVProstoru(hra, centralText);
+        panelPostavy = new PanelPostavy(hra, centralText);
+        panelBatoh = new PanelBatoh(hra.getHerniPlan(), centralText, hra);
+        panelVolby = new PanelVolby(hra, centralText);
+
+        // label s textem zadej prikaz
         Label zadejPrikazLabel = new Label("Zadej přikaz: ");
         zadejPrikazLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
 
@@ -78,6 +83,7 @@ public class Main extends Application {
             }
         });
 
+        // panel se seznamem aktualnich vychodu
         panelVychody.getSeznamVychodu().setOnMouseClicked(event -> {
             String nazevVychodu = panelVychody.getSeznamVychodu().getSelectionModel().getSelectedItem();
             String vstupniPrikaz = "jdi " + nazevVychodu;
@@ -85,16 +91,12 @@ public class Main extends Application {
             appendCentralText(odpovedHry);
         });
 
-        //dolni lista s elementy
+        // dolni lista s elementy
         FlowPane dolniLista = new FlowPane();
         dolniLista.setAlignment(Pos.CENTER);
         dolniLista.getChildren().addAll(zadejPrikazLabel, zadejPrikazTextArea);
 
-        panelVeciVProstoru = new PanelVeciVProstoru(hra, centralText);
-        panelPostavy = new PanelPostavy(hra, centralText);
-        panelBatoh = new PanelBatoh(hra.getHerniPlan(), centralText, hra);
-        panelVolby = new PanelVolby(hra, centralText);
-
+        // pravá lišta s elementy
         FlowPane pravaLista = new FlowPane();
         pravaLista.setAlignment(Pos.TOP_CENTER);
         pravaLista.setPrefWidth(200);
@@ -110,20 +112,24 @@ public class Main extends Application {
                 panelVolby.getVolbaLabel(),
                 panelVolby);
 
+        // přiřazení elementů do borderPane
         borderPane.setLeft(panelMapa);
         borderPane.setRight(pravaLista);
         borderPane.setBottom(dolniLista);
         borderPane.setTop(menuLista);
 
+        // nastavení primaryStage
         Scene scene = new Scene(borderPane, 1330, 720);
         scene.getStylesheets().add("zdroje/styles.css");
         primaryStage.setTitle("Adventura");
-
         primaryStage.setScene(scene);
         primaryStage.show();
         zadejPrikazTextArea.requestFocus();
     }
 
+    /**
+     * @param vstupniPrikaz přikaz k přidání do centrálního textu
+     */
     private void appendCentralText(String vstupniPrikaz) {
         this.centralText.appendText("\n" + vstupniPrikaz + "\n");
     }
