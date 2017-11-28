@@ -15,7 +15,11 @@ import utils.Observer;
 import java.util.HashMap;
 
 /**
+ * Třída PanelPostavy - vytváří UI postav v prostoru
+ * Tato třída je součástí jednoduché textové hry.
+ *
  * @author Jiří Čech
+ * @version 28.11.2017
  */
 public class PanelPostavy extends VBox implements Observer {
     private IHra hra;
@@ -36,6 +40,10 @@ public class PanelPostavy extends VBox implements Observer {
         init();
     }
 
+    /**
+     * Vytváří panelPostavy sse seznamem postav v autkálním prostoru
+     * S postavami lze mluvit
+     */
     private void init() {
         postavaLabel = new Label("PanelPostavy v prostoru:");
         postavaLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -48,6 +56,9 @@ public class PanelPostavy extends VBox implements Observer {
         update();
     }
 
+    /**
+     * Aktualizuje panelPostavy
+     */
     @Override
     public void update() {
         this.getChildren().clear();
@@ -55,6 +66,10 @@ public class PanelPostavy extends VBox implements Observer {
         vytvorTlacitkaProPostavy(mapaPostavVProstoru);
     }
 
+    /**
+     * Vytvoří tlačítka ro postavy v aktuálním prostoru
+     * @param mapaPostavVProstoru - postavy v aktuálním prostory
+     */
     private void vytvorTlacitkaProPostavy(HashMap<String, Postava> mapaPostavVProstoru) {
         for (String postava : mapaPostavVProstoru.keySet()) {
             Postava pomocnaPostava = mapaPostavVProstoru.get(postava);
@@ -68,6 +83,10 @@ public class PanelPostavy extends VBox implements Observer {
         }
     }
 
+    /**
+     * Nastaví tlačítko pro postavu
+     * @param pomocnaPostava - Nastaví tlačítko pro postavu
+     */
     private void nastavTlacitkoPostavy(Postava pomocnaPostava) {
         tlacitkoPostavy.setOnMouseClicked(click -> {
             String vstupniPrikaz = "mluv " + pomocnaPostava.getJmeno();
