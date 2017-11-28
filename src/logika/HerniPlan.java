@@ -210,10 +210,6 @@ public class HerniPlan implements Subject {
         return batoh;
     }
 
-    public Prostor getViteznyProstor() {
-        return viteznyProstor;
-    }
-
     @Override
     public void registerObserver(Observer observer) {
         listObserveru.add(observer);
