@@ -56,8 +56,8 @@ public class MenuLista extends MenuBar {
             Alert oProgramuAlert = new Alert(Alert.AlertType.INFORMATION);
 
             oProgramuAlert.setTitle("O pragramu");
-            oProgramuAlert.setHeaderText("Super adventura XYZ");
-            oProgramuAlert.setContentText("Loren ipsum");
+            oProgramuAlert.setHeaderText("Adventura Králoství Lihovin");
+            oProgramuAlert.setContentText("v28-11-17");
             oProgramuAlert.initOwner(main.getStage());
 
             oProgramuAlert.showAndWait();
