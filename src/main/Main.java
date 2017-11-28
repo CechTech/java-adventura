@@ -28,7 +28,7 @@ public class Main extends Application {
     private TextField zadejPrikazTextArea;
 
     private PanelVychody panelVychody;
-    private PanelVeciVProstoru panelVeciVProstoru;
+    private PanelVeci panelVeci;
     private PanelBatoh panelBatoh;
     private PanelPostavy panelPostavy;
     private PanelVolby panelVolby;
@@ -56,7 +56,7 @@ public class Main extends Application {
         borderPane.setCenter(centralText);
 
         // vytvoření panelů
-        panelVeciVProstoru = new PanelVeciVProstoru(hra, centralText);
+        panelVeci = new PanelVeci(hra, centralText);
         panelPostavy = new PanelPostavy(hra, centralText);
         panelBatoh = new PanelBatoh(hra.getHerniPlan(), centralText, hra);
         panelVolby = new PanelVolby(hra, centralText);
@@ -79,7 +79,7 @@ public class Main extends Application {
             if (hra.konecHry()) {
                 zadejPrikazTextArea.setEditable(false);
                 panelVychody.getSeznamVychodu().setDisable(true);
-                panelVeciVProstoru.setDisable(true);
+                panelVeci.setDisable(true);
                 panelBatoh.setDisable(true);
                 panelPostavy.setDisable(true);
                 panelVolby.setDisable(true);
@@ -107,8 +107,8 @@ public class Main extends Application {
         pravaLista.getChildren().addAll(
                 panelVychody.getVychodLabel(),
                 panelVychody.getSeznamVychodu(),
-                panelVeciVProstoru.getVecLabel(),
-                panelVeciVProstoru,
+                panelVeci.getVecLabel(),
+                panelVeci,
                 panelBatoh.getBatohLabel(),
                 panelBatoh,
                 panelPostavy.getPostavaLabel(),
