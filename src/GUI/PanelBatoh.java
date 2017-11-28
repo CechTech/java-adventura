@@ -16,7 +16,11 @@ import main.Main;
 import utils.Observer;
 
 /**
+ * Třída PanelBatoh - vytváří UI inventářa pro hráče
+ * Tato třída je součástí jednoduché textové hry.
+ *
  * @author Jiří Čech
+ * @version 28.11.2017
  */
 public class PanelBatoh extends VBox implements Observer {
     private HerniPlan plan;
@@ -27,7 +31,7 @@ public class PanelBatoh extends VBox implements Observer {
     private TextArea centralText;
 
     /**
-     * Konstruktor batohu
+     * Konstruktor panelBatoh
      * @param plan -
      * @param text -
      * @param hra -
@@ -40,6 +44,10 @@ public class PanelBatoh extends VBox implements Observer {
         init();
     }
 
+    /**
+     * Vytváří panelBatoh s inventářem věcí v batohu.
+     * Věci v batohu lze použít, nebo zahodit do aktuálního prostoru
+     */
     private void init() {
         batohLabel = new Label("PanelBatoh:");
         batohLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -64,6 +72,9 @@ public class PanelBatoh extends VBox implements Observer {
         }
     }
 
+    /**
+     * Aktualizuje panelBatoh
+     */
     @Override
     public void update() {
         this.getChildren().clear();
@@ -84,6 +95,10 @@ public class PanelBatoh extends VBox implements Observer {
         }
     }
 
+    /**
+     * Umožní tlačítku věci použít příkaz pouzi
+     * @param pomocnaVec - Nastaví tlačítko pro věc
+     */
     private void tlacitkoBatohu(Vec pomocnaVec) {
         tlacitkoBatohu.setOnMouseClicked(event -> {
             String vstupniPrikaz = "pouzi " + pomocnaVec.getNazev();
@@ -96,6 +111,10 @@ public class PanelBatoh extends VBox implements Observer {
         });
     }
 
+    /**
+     * Umožní tlačítku vyhoď použít příkaz vyhod
+     * @param pomocnaVec - Nastaví tlačítko pro věc
+     */
     private void tlacitkoVyhod(Vec pomocnaVec) {
         tlacitkoVyhod.setOnMouseClicked(event -> {
             String vstupniPrikaz = "vyhod " + pomocnaVec.getNazev();
