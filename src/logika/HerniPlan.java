@@ -103,7 +103,7 @@ public class HerniPlan implements Subject {
         ledoveOstrovy.vlozVec(kouzelnyRoh);
         ledoveOstrovy.vlozVec(horolezeckeVybaveni);
 
-        // Vytvorime nové postavy
+        // Vytvořime nové postavy
         jelenJagermeister = new Postava ("jelenJagermeister", "Jelen Jägermeister: Proč mě voláš princi Pivoni? \n"
                 + "Pivoň: Pane lesů, můj otec král Abrelour zemřel a já mám nastoupit na jeho místo. \n"
                 + "Pivoň: Žádám tě proto, aby jsi se dostavil na korunovaci a odpřísáhl mi věrnost. \n"
@@ -206,20 +206,34 @@ public class HerniPlan implements Subject {
         notifyObservers();
     }
 
+    /**
+     * @return batoh
+     */
     public Batoh getBatoh() {
         return batoh;
     }
 
+    /**
+     * Metoda registruje observer
+     * @param observer -
+     */
     @Override
     public void registerObserver(Observer observer) {
         listObserveru.add(observer);
     }
 
+    /**
+     * Metoda odstraňuje observer
+     * @param observer -
+     */
     @Override
     public void removeObserver(Observer observer) {
         listObserveru.remove(observer);
     }
 
+    /**
+     * Metoda upozorňuje observery
+     */
     @Override
     public void notifyObservers() {
         for (Observer listObserveruItem : listObserveru) {
