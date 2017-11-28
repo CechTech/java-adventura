@@ -40,5 +40,4 @@ public class PrikazBatoh implements IPrikaz
     public String getNazev() {
         return NAZEV;
     }
-
 }

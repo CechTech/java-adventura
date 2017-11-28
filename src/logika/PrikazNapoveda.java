@@ -26,7 +26,8 @@ class PrikazNapoveda implements IPrikaz {
     /**
      *  Vrací základní nápovědu po zadání příkazu "napoveda". Nyní se vypisuje
      *  vcelku primitivní zpráva a seznam dostupných příkazů.
-     *  
+     *
+     *  @param parametry -
      *  @return napoveda ke hre
      */
     @Override
@@ -42,7 +43,7 @@ class PrikazNapoveda implements IPrikaz {
      /**
      *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
      *  
-     *  @ return nazev prikazu
+     *  @return nazev prikazu
      */
     @Override
       public String getNazev() {

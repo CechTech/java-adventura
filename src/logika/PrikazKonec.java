@@ -7,7 +7,6 @@ package logika;
  * @author     Jarmila Pavlickova
  * @version    ZS 2016/2017
  */
-
 class PrikazKonec implements IPrikaz {
 
     private static final String NAZEV = "konec";
@@ -29,7 +28,6 @@ class PrikazKonec implements IPrikaz {
      * 
      * @return zpráva, kterou vypíše hra hráči
      */
-
     @Override
     public String proved(String... parametry) {
         if (parametry.length > 0) {
