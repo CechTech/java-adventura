@@ -16,15 +16,15 @@ import logika.*;
 import uiText.TextoveRozhrani;
 
 /**
- * @author xzenj02, cecj02
+ * Třída Main - propojuje logiku s GUI
+ * Tato třída je součástí jednoduché textové hry.
+ *
+ * @author xzenj02
+ * @version 28.11.2017
  */
 public class Main extends Application {
     private TextArea centralText;
     private IHra hra;
-
-    public void setHra(IHra hra) {
-        this.hra = hra;
-    }
     private TextField zadejPrikazTextArea;
 
     private PanelVychody panelVychody;
@@ -35,6 +35,10 @@ public class Main extends Application {
 
     private Stage stage;
 
+    /**
+     * Spouští okno hry
+     * @param primaryStage - primární stage
+     */
     @Override
     public void start(Stage primaryStage) {
         this.setStage(primaryStage);
@@ -155,14 +159,21 @@ public class Main extends Application {
     }
 
     /**
-     * @return the stage
+     * @param hra - set hra
+     */
+    public void setHra(IHra hra) {
+        this.hra = hra;
+    }
+
+    /**
+     * @return stage
      */
     public Stage getStage() {
         return stage;
     }
 
     /**
-     * @param stage the stage to set
+     * @param stage - set stage
      */
     private void setStage(Stage stage) {
         this.stage = stage;

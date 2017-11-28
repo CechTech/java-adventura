@@ -58,7 +58,7 @@ public class PanelVeciVProstoru extends VBox implements Observer {
     }
 
     /**
-     * Aktualizuje panelVeciVProstoru
+     * Aktualizuje PanelVeciVProstoru
      */
     @Override
     public void update() {

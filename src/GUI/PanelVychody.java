@@ -57,7 +57,7 @@ public class PanelVychody extends ListView implements Observer {
     }
 
     /**
-     * Aktualizuje panelVychody
+     * Aktualizuje PanelVychody
      */
     @Override
     public void update() {

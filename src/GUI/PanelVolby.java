@@ -77,7 +77,7 @@ public class PanelVolby extends HBox implements Observer {
     }
 
     /**
-     * Aktualizuje panelVolby
+     * Aktualizuje PanelVolby
      */
     @Override
     public void update() {

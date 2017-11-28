@@ -73,7 +73,7 @@ public class PanelBatoh extends VBox implements Observer {
     }
 
     /**
-     * Aktualizuje panelBatoh
+     * Aktualizuje PanelBatoh
      */
     @Override
     public void update() {

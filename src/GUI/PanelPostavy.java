@@ -57,7 +57,7 @@ public class PanelPostavy extends VBox implements Observer {
     }
 
     /**
-     * Aktualizuje panelPostavy
+     * Aktualizuje PanelPostavy
      */
     @Override
     public void update() {
